@@ -1,7 +1,0 @@
-POST     | masariuman_tag                       | masariuman_tag.store   | App\Http\Controllers\TagController@store  
-GET|HEAD | masariuman_tag                       | masariuman_tag.index   | App\Http\Controllers\TagController@index  
-GET|HEAD | masariuman_tag/create                | masariuman_tag.create  | App\Http\Controllers\TagController@create 
-DELETE   | masariuman_tag/{masariuman_tag}      | masariuman_tag.destroy | App\Http\Controllers\TagController@destroy
-PUT|PATCH| masariuman_tag/{masariuman_tag}      | masariuman_tag.update  | App\Http\Controllers\TagController@update 
-GET|HEAD | masariuman_tag/{masariuman_tag}      | masariuman_tag.show    | App\Http\Controllers\TagController@show   
-GET|HEAD | masariuman_tag/{masariuman_tag}/edit | masariuman_tag.edit    | App\Http\Controllers\TagController@edit   

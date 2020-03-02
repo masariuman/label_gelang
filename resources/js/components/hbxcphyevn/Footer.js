@@ -10,18 +10,16 @@ class Footer extends Component {
                             <ul className="nav">
                                 <li className="nav-item">
                                     <a
-                                        href="http://masariuman.xyz/"
+                                        href="http://rumahsakit.untan.ac.id/"
                                         className="nav-link"
                                     >
-                                        Arif Setiawan
+                                        Rumah Sakit Universitas Tanjungpura
+                                        Pontianak
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a
-                                        href="http://masariuman.xyz/"
-                                        className="nav-link"
-                                    >
-                                        MasariuMan
+                                    <a href="#" className="nav-link">
+                                        Copyright &copy; 2020
                                     </a>
                                 </li>
                             </ul>
@@ -29,20 +27,24 @@ class Footer extends Component {
                         <div className="app-footer-right">
                             <ul className="nav">
                                 <li className="nav-item">
-                                    <a
-                                        href="http://masariuman.xyz/"
-                                        className="nav-link"
-                                    >
-                                        Copyright &copy; 2020
+                                    <a href="#" className="nav-link">
+                                        IT RS UNTAN
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item nav-link">
+                                    <div className="badge badge-warning mr-1 ml-0">
+                                        <small>IT</small>
+                                    </div>
                                     <a
-                                        href="http://masariuman.xyz/"
-                                        className="nav-link"
+                                        href="http://masariuman.xyz"
+                                        target="blank"
                                     >
-                                        MasariuMan
+                                        Arif Setiawan
                                     </a>
+                                    &nbsp; | M. Arief Maulana&nbsp;
+                                    <div className="badge badge-warning mr-1 ml-0">
+                                        <small>TI</small>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

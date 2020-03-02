@@ -1,46 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class Header extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         shashin: "",
-    //         photo: ""
-    //     };
-    // }
-
-    // getShashin() {
-    //     axios.get("/shashin").then(response =>
-    //         this.setState({
-    //             shashin: response.data.shashin
-    //         })
-    //     );
-    // }
-
-    // ifPhotoNull() {
-    //     if (this.state.shashin.photo === null) {
-    //         this.setState({
-    //             photo: "nophoto.png"
-    //         });
-    //     }
-    // }
-
-    // testShashin() {
-    //     axios
-    //         .get("/shashin")
-    //         .then(response => console.log(response.data.shashin));
-    // }
-
-    // componentDidMount() {
-    //     this.getShashin();
-    // }
-
     render() {
         return (
             <div className="app-header header-shadow bg-happy-green header-text-light">
                 <div className="app-header__logo">
-                    <div className="loogoo">MasariuMan&nbsp;</div>
+                    <div className="loogoo">RSUNTAN</div>
                     <div className="header__pane ml-auto">
                         <div>
                             <button
@@ -103,20 +68,13 @@ class Header extends Component {
                                     </div>
                                     <div className="widget-content-left  ml-3 header-user-info">
                                         <div className="widget-heading">
-                                            MasariuMan
+                                            Rekam Medis
                                         </div>
                                         <div className="widget-subheading"></div>
                                         <a href="logout">
                                             {" "}
                                             <div className="widget-heading">
-                                                Logout{" "}
-                                                <i
-                                                    className="fa fa-fw"
-                                                    aria-hidden="true"
-                                                    title="Copy to use power-off"
-                                                >
-                                                    
-                                                </i>
+                                                Label | Gelang
                                             </div>
                                         </a>
                                     </div>
