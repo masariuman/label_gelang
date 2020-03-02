@@ -72969,6 +72969,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_hbxcphyevn_Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/hbxcphyevn/Sidebar */ "./resources/js/components/hbxcphyevn/Sidebar.js");
 /* harmony import */ var _components_hbxcphyevn_Footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/hbxcphyevn/Footer */ "./resources/js/components/hbxcphyevn/Footer.js");
 /* harmony import */ var _components_Index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.js");
+/* harmony import */ var _components_Track__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Track */ "./resources/js/components/Track.js");
 
 
 
@@ -72977,6 +72978,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import Tracer from ".components/Track";
 
 if (document.getElementById("root")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_hbxcphyevn_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_hbxcphyevn_Setting__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -72985,7 +72987,11 @@ if (document.getElementById("root")) {
     className: "app-main__outer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app-main__inner"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Index__WEBPACK_IMPORTED_MODULE_7__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_hbxcphyevn_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), document.getElementById("root"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/tracer",
+    component: _components_Track__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Index__WEBPACK_IMPORTED_MODULE_7__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_hbxcphyevn_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), document.getElementById("root"));
 }
 
 /***/ }),
@@ -73231,6 +73237,188 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Track.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/Track.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Track =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Track, _Component);
+
+  function Track(props) {
+    var _this;
+
+    _classCallCheck(this, Track);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Track).call(this, props));
+    _this.state = {
+      data: [],
+      pagination: [],
+      cari: "",
+      url: "/tracer/data"
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.renderCari = _this.renderCari.bind(_assertThisInitialized(_this));
+    _this.getData = _this.getData.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Track, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        cari: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      axios.post("/tracer/data", {
+        cari: this.state.cari
+      }).then(function (response) {
+        _this2.setState({
+          data: response.data.cari,
+          cari: ""
+        });
+      })["catch"](function (error) {
+        console.log(error.message);
+      });
+    }
+  }, {
+    key: "getData",
+    value: function getData() {
+      var _this3 = this;
+
+      axios.get("/tracer/data").then(function (response) {
+        _this3.setState({
+          data: response.data.cari
+        }); // console.log(response.data.cari);
+
+      });
+    }
+  }, {
+    key: "renderCari",
+    value: function renderCari() {
+      if (!this.state.data[0]) {
+        return this.state.data.map(function (data) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: "1"
+          }, "DATA TIDAK ADA");
+        });
+      } else {
+        return this.state.data.map(function (data) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+            key: data.no_rawat
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+            scope: "row"
+          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.data.nm_pasien), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tgl_registrasi), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.poli.nm_poli), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.dokter.nm_dokter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            href: "/tracer/".concat(data.no_rkm_medis, "/print"),
+            className: "btn btn-success btn-xs",
+            target: "_blank"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fa fa-print"
+          }), " Cetak Tracer")));
+        });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getData();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "app-page-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-heading"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "pe-7s-search icon-gradient bg-happy-green"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "TRACER", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-subheading"
+      }, "Halaman ini berfungsi untuk manajemen Tracer."))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-card mb-3 card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChange,
+        value: this.state.cari,
+        className: "form-control-lg form-control",
+        placeholder: "Cari Nomor Rekam Medis",
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn-square btn-hover-shine btn btn-success"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "pe-7s-search"
+      }), " CARI / KLIK ENTER UNTUK CARI")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn-square btn-hover-shine btn btn-primary",
+        onClick: this.getData
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "pe-7s-note2"
+      }), " TAMPILKAN PASIEN HARI INI"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-responsive"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "mb-0 table"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NAMA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "TANGGAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "POLI TUJUAN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "DOKTER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "AKSI"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn-wide mb-2 mr-2 btn-icon btn-icon-right btn-shadow btn-pill btn btn-outline-success",
+        onClick: this.loadMore
+      }, "More") : ""))));
+    }
+  }]);
+
+  return Track;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Track);
+
+/***/ }),
+
 /***/ "./resources/js/components/hbxcphyevn/Footer.js":
 /*!******************************************************!*\
   !*** ./resources/js/components/hbxcphyevn/Footer.js ***!
@@ -73336,6 +73524,7 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73353,6 +73542,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -73432,13 +73622,15 @@ function (_Component) {
         className: "widget-content-left  ml-3 header-user-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "widget-heading"
-      }, "Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "LABEL | GELANG")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "widget-subheading"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "logout"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "widget-heading"
-      }, "Label | Gelang")))))))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/tracer"
+      }, "TRACER")))))))));
     }
   }]);
 

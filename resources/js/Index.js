@@ -6,6 +6,8 @@ import Header from "./components/hbxcphyevn/Header";
 import Sidebar from "./components/hbxcphyevn/Sidebar";
 import Footer from "./components/hbxcphyevn/Footer";
 import Index from "./components/Index";
+import Track from "./components/Track";
+// import Tracer from ".components/Track";
 
 if (document.getElementById("root")) {
     ReactDOM.render(
@@ -17,6 +19,7 @@ if (document.getElementById("root")) {
                 <div className="app-main__outer">
                     <div className="app-main__inner">
                         <Switch>
+                            <Route exact path="/tracer" component={Track} />
                             <Index />
                         </Switch>
                     </div>
