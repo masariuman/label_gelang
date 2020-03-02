@@ -73131,9 +73131,8 @@ function (_Component) {
           data: [response.data.cari],
           cari: ""
         }); // console.log("from handle sumit", response);
+        // console.log(this.state.data);
 
-
-        console.log(_this2.state.data);
       })["catch"](function (error) {
         console.log(error.message);
       });
@@ -73215,7 +73214,7 @@ function (_Component) {
         className: "btn-square btn-hover-shine btn btn-success"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "pe-7s-search"
-      }), " CARI")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), this.renderCari())));
+      }), " CARI / KLIK ENTER UNTUK CARI")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), this.renderCari())));
     }
   }]);
 

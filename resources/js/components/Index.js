@@ -31,7 +31,7 @@ class Index extends Component {
                     cari: ""
                 });
                 // console.log("from handle sumit", response);
-                console.log(this.state.data);
+                // console.log(this.state.data);
             })
             .catch(error => {
                 console.log(error.message);
@@ -120,7 +120,8 @@ class Index extends Component {
                                 type="submit"
                                 className="btn-square btn-hover-shine btn btn-success"
                             >
-                                <a className="pe-7s-search"></a> CARI
+                                <a className="pe-7s-search"></a> CARI / KLIK
+                                ENTER UNTUK CARI
                             </button>
                         </form>
                         <hr />
