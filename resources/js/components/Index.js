@@ -46,15 +46,6 @@ class Index extends Component {
         } else {
             return this.state.data.map(data => (
                 <div key="1">
-                    <table border="0">
-                        <tbody>
-                            <tr>
-                                <td>No MR</td>
-                                <td>:</td>
-                                <td>{data.no_rkm_medis}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <a
                         href={`/${data.no_rkm_medis}/label`}
                         className="btn btn-success btn-xs"
@@ -76,6 +67,22 @@ class Index extends Component {
                     >
                         <i className="fa fa-print"></i> Cetak Gelang Anak
                     </a>
+                    <a
+                        href={`/${data.no_rkm_medis}/gelang_anak`}
+                        className="btn btn-danger btn-xs"
+                        target="_blank"
+                    >
+                        <i className="fa fa-print"></i> Cetak Tracer
+                    </a>
+                    <table border="0">
+                        <tbody>
+                            <tr>
+                                <td>No MR</td>
+                                <td>:</td>
+                                <td>{data.no_rkm_medis}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             ));
         }

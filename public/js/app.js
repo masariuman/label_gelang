@@ -73150,9 +73150,7 @@ function (_Component) {
         return this.state.data.map(function (data) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: "1"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-            border: "0"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/".concat(data.no_rkm_medis, "/label"),
             className: "btn btn-success btn-xs",
             target: "_blank"
@@ -73170,7 +73168,15 @@ function (_Component) {
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
-          }), " Cetak Gelang Anak"));
+          }), " Cetak Gelang Anak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            href: "/".concat(data.no_rkm_medis, "/gelang_anak"),
+            className: "btn btn-danger btn-xs",
+            target: "_blank"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fa fa-print"
+          }), " Cetak Tracer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+            border: "0"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis)))));
         });
       }
     }
@@ -73998,8 +74004,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
