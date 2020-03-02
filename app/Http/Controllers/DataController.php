@@ -24,6 +24,8 @@ class DataController extends Controller
 		dd($data);
     }
 
+
+    // Template
     public function templateLabel()
 
     {
