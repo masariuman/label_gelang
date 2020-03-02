@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
     render() {
@@ -68,15 +69,12 @@ class Header extends Component {
                                     </div>
                                     <div className="widget-content-left  ml-3 header-user-info">
                                         <div className="widget-heading">
-                                            Rekam Medis
+                                            <Link to={`/`}>LABEL | GELANG</Link>
                                         </div>
-                                        <div className="widget-subheading"></div>
-                                        <a href="logout">
-                                            {" "}
-                                            <div className="widget-heading">
-                                                Label | Gelang
-                                            </div>
-                                        </a>
+                                        <div className="widget-subheading"></div>{" "}
+                                        <div className="widget-heading">
+                                            <Link to={`/tracer`}>TRACER</Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

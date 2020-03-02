@@ -74,15 +74,15 @@ class DataController extends Controller
     public function templateTracer()
 
     {
-        $label = Data::first();
-        $data['label'] = $label;
+        $tracer = Data::first();
+        $data['tracer'] = $tracer;
         // $count = count($label);
         // $data['count'] = $count;
         $data['today'] = date('d/m/Y');
 
-        $pdf = PDF::loadView('print.label', $data);
+        $pdf = PDF::loadView('print.tracer', $data);
         // return $pdf->stream();
-        return view('print.label');
+        return view('print.tracer',$data);
         // return $pdf->download('laporan-pdf.pdf');
     }
 }
