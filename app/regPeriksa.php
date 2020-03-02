@@ -20,6 +20,6 @@ class regPeriksa extends Model
 
     public function poli()
     {
-      return $this->belongsTo('App\Poli', 'kd_dokter', 'kd_dokter');
+      return $this->belongsTo('App\Poli', 'kd_poli', 'kd_poli');
     }
 }

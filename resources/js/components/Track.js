@@ -12,6 +12,7 @@ class Track extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderCari = this.renderCari.bind(this);
+        this.getData = this.getData.bind(this);
     }
 
     handleChange(e) {
@@ -29,15 +30,22 @@ class Track extends Component {
             })
             .then(response => {
                 this.setState({
-                    data: [response.data.cari],
+                    data: response.data.cari,
                     cari: ""
                 });
-                // console.log("from handle sumit", response);
-                // console.log(this.state.data);
             })
             .catch(error => {
                 console.log(error.message);
             });
+    }
+
+    getData() {
+        axios.get("/tracer/data").then(response => {
+            this.setState({
+                data: response.data.cari
+            });
+            // console.log(response.data.cari);
+        });
     }
 
     renderCari() {
@@ -47,11 +55,13 @@ class Track extends Component {
             ));
         } else {
             return this.state.data.map(data => (
-                <tr key={data.no_rkm_medis}>
+                <tr key={data.no_rawat}>
                     <th scope="row">{data.nomor}</th>
-                    <td>tanggal</td>
-                    <td>poli tujuan</td>
-                    <td>dokter</td>
+                    <td>{data.no_rkm_medis}</td>
+                    <td>{data.data.nm_pasien}</td>
+                    <td>{data.tgl_registrasi}</td>
+                    <td>{data.poli.nm_poli}</td>
+                    <td>{data.dokter.nm_dokter}</td>
                     <td>
                         <a
                             href={`/tracer/${data.no_rkm_medis}/print`}
@@ -66,7 +76,9 @@ class Track extends Component {
         }
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.getData();
+    }
 
     componentDidUpdate() {}
 
@@ -109,6 +121,14 @@ class Track extends Component {
                                 ENTER UNTUK CARI
                             </button>
                         </form>
+                        <button
+                            type="button"
+                            className="btn-square btn-hover-shine btn btn-primary"
+                            onClick={this.getData}
+                        >
+                            <a className="pe-7s-note2"></a> TAMPILKAN PASIEN
+                            HARI INI
+                        </button>
                         <hr />
                         <p></p>
                         <div className="table-responsive">
@@ -116,6 +136,8 @@ class Track extends Component {
                                 <thead>
                                     <tr>
                                         <th>NO</th>
+                                        <th>MR</th>
+                                        <th>NAMA</th>
                                         <th>TANGGAL</th>
                                         <th>POLI TUJUAN</th>
                                         <th>DOKTER</th>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Data;
+use App\regPeriksa;
 use PDF;
+use Carbon\Carbon;
 
 class DataController extends Controller
 {
@@ -12,6 +14,34 @@ class DataController extends Controller
     {
         $input = $request->cari;
         $data = Data::where('no_rkm_medis', 'like', '%' . $input . '%')->first();
+        return response()->json([
+            'cari' => $data
+		]);
+    }
+
+    public function tracerData()
+    {
+        //
+        $data = regPeriksa::whereDate('tgl_registrasi', Carbon::today())->orderBy("tgl_registrasi", "DESC")->with(['data','poli','dokter'])->get();
+        $count = 1;
+        foreach ($data as $datas) {
+            $datas['nomor'] = $count;
+            $count++;
+        }
+		return response()->json([
+            'cari' => $data
+		]);
+    }
+
+    public function cariTracerData(Request $request)
+    {
+        $input = $request->cari;
+        $data = regPeriksa::where('no_rkm_medis', 'like', '%' . $input . '%')->orderBy("tgl_registrasi", "DESC")->with(['data','poli','dokter'])->get();
+        $count = 1;
+        foreach ($data as $datas) {
+            $datas['nomor'] = $count;
+            $count++;
+        }
         return response()->json([
             'cari' => $data
 		]);

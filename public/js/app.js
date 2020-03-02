@@ -73282,6 +73282,7 @@ function (_Component) {
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.renderCari = _this.renderCari.bind(_assertThisInitialized(_this));
+    _this.getData = _this.getData.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -73302,13 +73303,23 @@ function (_Component) {
         cari: this.state.cari
       }).then(function (response) {
         _this2.setState({
-          data: [response.data.cari],
+          data: response.data.cari,
           cari: ""
-        }); // console.log("from handle sumit", response);
-        // console.log(this.state.data);
-
+        });
       })["catch"](function (error) {
         console.log(error.message);
+      });
+    }
+  }, {
+    key: "getData",
+    value: function getData() {
+      var _this3 = this;
+
+      axios.get("/tracer/data").then(function (response) {
+        _this3.setState({
+          data: response.data.cari
+        }); // console.log(response.data.cari);
+
       });
     }
   }, {
@@ -73323,10 +73334,10 @@ function (_Component) {
       } else {
         return this.state.data.map(function (data) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-            key: data.no_rkm_medis
+            key: data.no_rawat
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
             scope: "row"
-          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "tanggal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "poli tujuan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "dokter"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.data.nm_pasien), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tgl_registrasi), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.poli.nm_poli), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.dokter.nm_dokter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/tracer/".concat(data.no_rkm_medis, "/print"),
             className: "btn btn-success btn-xs",
             target: "_blank"
@@ -73338,7 +73349,9 @@ function (_Component) {
     }
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      this.getData();
+    }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {}
@@ -73376,11 +73389,17 @@ function (_Component) {
         className: "btn-square btn-hover-shine btn btn-success"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "pe-7s-search"
-      }), " CARI / KLIK ENTER UNTUK CARI")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), " CARI / KLIK ENTER UNTUK CARI")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn-square btn-hover-shine btn btn-primary",
+        onClick: this.getData
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "pe-7s-note2"
+      }), " TAMPILKAN PASIEN HARI INI"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "mb-0 table"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "TANGGAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "POLI TUJUAN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "DOKTER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "AKSI"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NAMA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "TANGGAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "POLI TUJUAN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "DOKTER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "AKSI"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn-wide mb-2 mr-2 btn-icon btn-icon-right btn-shadow btn-pill btn btn-outline-success",
         onClick: this.loadMore
       }, "More") : ""))));
