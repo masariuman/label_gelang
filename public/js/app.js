@@ -73156,27 +73156,27 @@ function (_Component) {
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
-          }), " Cetak Label"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }), " Cetak Label"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/".concat(data.no_rkm_medis, "/gelang_dewasa"),
             className: "btn btn-primary btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
-          }, " Cetak Gelang Dewasa")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }, " Cetak Gelang Dewasa")), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/".concat(data.no_rkm_medis, "/gelang_anak"),
             className: "btn btn-warning btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
-          }), " Cetak Gelang Anak"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }), " Cetak Gelang Anak"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/".concat(data.no_rkm_medis, "/gelang_anak"),
             className: "btn btn-danger btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
-          }), " Cetak Tracer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-            border: "0"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis)))));
+          }), " Cetak Tracer"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+            "class": "mb-0 table table-bordered"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No KTP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tempat Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Ibu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Alamat"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nm_pasien), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_ktp), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.jk), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tmp_lahir), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tgl_lahir), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nm_ibu), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.alamat)))));
         });
       }
     }

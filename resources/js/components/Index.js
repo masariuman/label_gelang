@@ -52,34 +52,53 @@ class Index extends Component {
                         target="_blank"
                     >
                         <i className="fa fa-print"></i> Cetak Label
-                    </a>
+                    </a>&nbsp;
                     <a
                         href={`/${data.no_rkm_medis}/gelang_dewasa`}
                         className="btn btn-primary btn-xs"
                         target="_blank"
                     >
                         <i className="fa fa-print"> Cetak Gelang Dewasa</i>
-                    </a>
+                    </a>&nbsp;
                     <a
                         href={`/${data.no_rkm_medis}/gelang_anak`}
                         className="btn btn-warning btn-xs"
                         target="_blank"
                     >
                         <i className="fa fa-print"></i> Cetak Gelang Anak
-                    </a>
+                    </a>&nbsp;
                     <a
                         href={`/${data.no_rkm_medis}/gelang_anak`}
                         className="btn btn-danger btn-xs"
                         target="_blank"
                     >
                         <i className="fa fa-print"></i> Cetak Tracer
-                    </a>
-                    <table border="0">
+                    </a>&nbsp;
+                    <br></br>
+                    <br></br>
+                    <table class="mb-0 table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No Rekam Medis</th>
+                            <th>Nama Pasien</th>
+                            <th>No KTP</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Tempat Lahir</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Nama Ibu</th>
+                            <th>Alamat</th>
+                        </tr>
+                    </thead>
                         <tbody>
                             <tr>
-                                <td>No MR</td>
-                                <td>:</td>
                                 <td>{data.no_rkm_medis}</td>
+                                <td>{data.nm_pasien}</td>
+                                <td>{data.no_ktp}</td>
+                                <td>{data.jk}</td>
+                                <td>{data.tmp_lahir}</td>
+                                <td>{data.tgl_lahir}</td>
+                                <td>{data.nm_ibu}</td>
+                                <td>{data.alamat}</td>
                             </tr>
                         </tbody>
                     </table>
