@@ -38,4 +38,49 @@ class DataController extends Controller
         return view('print.label');
         // return $pdf->download('laporan-pdf.pdf');
     }
+
+    public function templateGelangDewasa()
+
+    {
+        $label = Data::first();
+        $data['label'] = $label;
+        // $count = count($label);
+        // $data['count'] = $count;
+        $data['today'] = date('d/m/Y');
+
+        $pdf = PDF::loadView('print.label', $data);
+        // return $pdf->stream();
+        return view('print.label');
+        // return $pdf->download('laporan-pdf.pdf');
+    }
+
+    public function templateGelangAnak()
+
+    {
+        $label = Data::first();
+        $data['label'] = $label;
+        // $count = count($label);
+        // $data['count'] = $count;
+        $data['today'] = date('d/m/Y');
+
+        $pdf = PDF::loadView('print.label', $data);
+        // return $pdf->stream();
+        return view('print.label');
+        // return $pdf->download('laporan-pdf.pdf');
+    }
+
+    public function templateTracer()
+
+    {
+        $label = Data::first();
+        $data['label'] = $label;
+        // $count = count($label);
+        // $data['count'] = $count;
+        $data['today'] = date('d/m/Y');
+
+        $pdf = PDF::loadView('print.label', $data);
+        // return $pdf->stream();
+        return view('print.label');
+        // return $pdf->download('laporan-pdf.pdf');
+    }
 }
