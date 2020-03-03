@@ -73136,9 +73136,9 @@ function (_Component) {
         _this2.setState({
           data: [response.data.cari],
           cari: ""
-        }); // console.log("from handle sumit", response);
-        // console.log(this.state.data);
+        });
 
+        console.log("from handle sumit", response); // console.log(this.state.data);
       })["catch"](function (error) {
         console.log(error.message);
       });
@@ -73181,8 +73181,8 @@ function (_Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }), " Cetak Tracer"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-            "class": "mb-0 table table-bordered"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No KTP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tempat Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Ibu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Alamat"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nm_pasien), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_ktp), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.jk), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tmp_lahir), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tgl_lahir), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nm_ibu), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.alamat)))));
+            className: "mb-0 table table-bordered"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No KTP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tempat Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Alamat"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.WILAYAH), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.JENIS_KELAMIN === 1 ? "L" : "P"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.TEMPAT_LAHIR), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.TANGGAL_LAHIR), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.ALAMAT)))));
         });
       }
     }

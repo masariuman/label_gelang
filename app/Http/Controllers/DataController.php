@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Data;
 use App\regPeriksa;
+use App\Pasien;
 use PDF;
 use Carbon\Carbon;
 
@@ -13,11 +14,12 @@ class DataController extends Controller
     public function cari(Request $request)
     {
         $input = $request->cari;
-        $data = Data::where('no_rkm_medis', 'like', '%' . $input . '%')->first();
+        $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
         return response()->json([
             'cari' => $data
 		]);
     }
+
 
     public function tracerData()
     {
@@ -114,5 +116,12 @@ class DataController extends Controller
         // return $pdf->stream();
         return view('print.tracer',$data);
         // return $pdf->download('laporan-pdf.pdf');
+    }
+
+    public function test()
+
+    {
+        $tracer = Pasien::all();
+        dd($tracer);
     }
 }
