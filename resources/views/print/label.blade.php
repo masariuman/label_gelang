@@ -32,8 +32,9 @@
 </head>
 
 <body>
-    test
-
+@foreach($label as $i => $label)
+    {{$label->NORM}}
+@endforeach
 
 </body>
 </html>

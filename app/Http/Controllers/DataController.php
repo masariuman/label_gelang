@@ -14,7 +14,7 @@ class DataController extends Controller
     public function cari(Request $request)
     {
         $input = $request->cari;
-        $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
+        $data = Pasien::where('NORM', 'like', '%' . $input . '%')->first();
         return response()->json([
             'cari' => $data
 		]);
@@ -57,66 +57,7 @@ class DataController extends Controller
     }
 
 
-    // Template
-    public function templateLabel()
-
-    {
-        $label = Data::first();
-        $data['label'] = $label;
-        // $count = count($label);
-        // $data['count'] = $count;
-        $data['today'] = date('d/m/Y');
-
-        $pdf = PDF::loadView('print.label', $data);
-        // return $pdf->stream();
-        return view('print.label');
-        // return $pdf->download('laporan-pdf.pdf');
-    }
-
-    public function templateGelangDewasa()
-
-    {
-        $label = Data::first();
-        $data['label'] = $label;
-        // $count = count($label);
-        // $data['count'] = $count;
-        $data['today'] = date('d/m/Y');
-
-        $pdf = PDF::loadView('print.label', $data);
-        // return $pdf->stream();
-        return view('print.label');
-        // return $pdf->download('laporan-pdf.pdf');
-    }
-
-    public function templateGelangAnak()
-
-    {
-        $label = Data::first();
-        $data['label'] = $label;
-        // $count = count($label);
-        // $data['count'] = $count;
-        $data['today'] = date('d/m/Y');
-
-        $pdf = PDF::loadView('print.label', $data);
-        // return $pdf->stream();
-        return view('print.label');
-        // return $pdf->download('laporan-pdf.pdf');
-    }
-
-    public function templateTracer()
-
-    {
-        $tracer = Data::first();
-        $data['tracer'] = $tracer;
-        // $count = count($label);
-        // $data['count'] = $count;
-        $data['today'] = date('d/m/Y');
-
-        $pdf = PDF::loadView('print.tracer', $data);
-        // return $pdf->stream();
-        return view('print.tracer',$data);
-        // return $pdf->download('laporan-pdf.pdf');
-    }
+   
 
     public function test()
 

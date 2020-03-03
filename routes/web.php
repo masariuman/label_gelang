@@ -9,10 +9,10 @@ Route::post('/tracer/data', 'DataController@cariTracerData');
 
 Route::get('/test', 'DataController@test');
 
-route::get('/templatelabel','DataController@templateLabel');
-route::get('/templategelangdewasa','DataController@templateGelangDewasa');
-route::get('/templategelanganak','DataController@templateGelangAnak');
-route::get('/templatetracer','DataController@templateTracer');
+route::get('/templatelabel','PrintController@templateLabel');
+route::get('/templategelangdewasa','PrintController@templateGelangDewasa');
+route::get('/templategelanganak','PrintController@templateGelangAnak');
+route::get('/templatetracer','PrintController@templateTracer');
 
 
 Route::any('{all}', function () {
