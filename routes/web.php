@@ -7,6 +7,8 @@ Route::get('/{id}/label', 'DataController@label');
 Route::get('/tracer/data', 'DataController@tracerData');
 Route::post('/tracer/data', 'DataController@cariTracerData');
 
+Route::get('/test', 'DataController@test');
+
 route::get('/templatelabel','DataController@templateLabel');
 route::get('/templategelangdewasa','DataController@templateGelangDewasa');
 route::get('/templategelanganak','DataController@templateGelangAnak');
