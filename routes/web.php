@@ -9,7 +9,7 @@ Route::post('/tracer/data', 'DataController@cariTracerData');
 
 Route::get('/test', 'DataController@test');
 
-route::get('/templatelabel','PrintController@templateLabel');
+route::get('/templatelabel','PrintController@templateLabel')->name('print_label');
 route::get('/templategelangdewasa','PrintController@templateGelangDewasa');
 route::get('/templategelanganak','PrintController@templateGelangAnak');
 route::get('/templatetracer','PrintController@templateTracer');

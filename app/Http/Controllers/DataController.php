@@ -14,7 +14,7 @@ class DataController extends Controller
     public function cari(Request $request)
     {
         $input = $request->cari;
-        $data = Pasien::where('NORM', 'like', '%' . $input . '%')->first();
+        $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
         return response()->json([
             'cari' => $data
 		]);
@@ -52,8 +52,21 @@ class DataController extends Controller
     public function label($id)
     {
         //
-        $data = Data::where('no_rkm_medis', 'like', '%' . $id . '%')->first();
-		dd($data);
+        // $data = Data::where('NORM', 'like', '%' . $id . '%')->first();
+        // dd($data);
+        
+        $label = Data::where('NORM',  $id)->get();
+        
+        $data['label'] = $label;
+        
+        // $count = count($label);
+        // $data['count'] = $count;
+        $data['today'] = date('d/m/Y');
+
+        $pdf = PDF::loadView('print.label', $data);
+        // return $pdf->stream();
+        return view('print.label', compact('label'));
+        // return $pdf->download('laporan-pdf.pdf')
     }
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Print Obat Dalam</title>
+    <title>Label Pasien</title>
     <style>
         body {
             font-size:10px;
@@ -34,6 +34,9 @@
 <body>
 @foreach($label as $i => $label)
     {{$label->NORM}}
+    <br>
+    {{$label->NAMA}}
+    <br>
 @endforeach
 
 </body>
