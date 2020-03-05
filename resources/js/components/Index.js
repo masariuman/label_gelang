@@ -59,7 +59,7 @@ class Index extends Component {
                         className="btn btn-primary btn-xs"
                         target="_blank"
                     >
-                        <i className="fa fa-print"> Cetak Gelang Dewasa</i>
+                        <i className="fa fa-print"></i> Cetak Gelang Dewasa
                     </a>
                     &nbsp;
                     <a
@@ -71,7 +71,7 @@ class Index extends Component {
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.NORM}/gelang_anak`}
+                        href={`/${data.NORM}/tracer`}
                         className="btn btn-danger btn-xs"
                         target="_blank"
                     >

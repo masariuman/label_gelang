@@ -73168,14 +73168,14 @@ function (_Component) {
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
-          }, " Cetak Gelang Dewasa")), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }), " Cetak Gelang Dewasa"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/".concat(data.NORM, "/gelang_anak"),
             className: "btn btn-warning btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }), " Cetak Gelang Anak"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.NORM, "/gelang_anak"),
+            href: "/".concat(data.NORM, "/tracer"),
             className: "btn btn-danger btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
