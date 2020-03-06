@@ -71,7 +71,7 @@ class Index extends Component {
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.NORM}/tracer`}
+                        href={`/${data.NORM}/gelang_anak`}
                         className="btn btn-danger btn-xs"
                         target="_blank"
                     >
