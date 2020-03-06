@@ -2,17 +2,23 @@
 
 
 Route::post('/', 'DataController@cari');
-Route::get('/{id}/label', 'DataController@label');
+// Route::get('/{id}/label', 'DataController@label');
+Route::get('/{id}/label', 'PrintController@templateLabel');
+Route::get('/{id}/gelang_dewasa', 'PrintController@templateGelangDewasa');
+Route::get('/{id}/gelang_anak', 'PrintController@templateGelangAnak');
+
+
+
 
 Route::get('/tracer/data', 'DataController@tracerData');
 Route::post('/tracer/data', 'DataController@cariTracerData');
 
 Route::get('/test', 'DataController@test');
 
-route::get('/templatelabel','DataController@templateLabel');
-route::get('/templategelangdewasa','DataController@templateGelangDewasa');
-route::get('/templategelanganak','DataController@templateGelangAnak');
-route::get('/templatetracer','DataController@templateTracer');
+// route::get('/templatelabel','PrintController@templateLabel');
+route::get('/templategelangdewasa','PrintController@templateGelangDewasa');
+route::get('/templategelanganak','PrintController@templateGelangAnak');
+route::get('/templatetracer','PrintController@templateTracer');
 
 
 Route::any('{all}', function () {

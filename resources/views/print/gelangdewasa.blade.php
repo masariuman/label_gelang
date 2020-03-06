@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Print Obat Dalam</title>
+    <title>Gelang Dewasa</title>
     <style>
         body {
             font-size:10px;
@@ -32,8 +32,39 @@
 </head>
 
 <body>
-    test
+@foreach($label as $i => $label)
+<table border="0" cellpadding="1" cellspacing="0" align="center" style="margin:0;padding:0; width:700px;">
 
+        <tr>
+            <td colspan="2" style="padding-top:30px;padding-bottom:5px;padding-left:400px;width:70px;">
+                <b>RS UNTAN</b>
+            </td>
+            <td style="padding-top:3px;width:75px;">
+              
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding-bottom:5px;padding-left:400px;">
+               <b>{{$label->NORM}}</b>
+            </td>
+            <td class="kanan" colspan="3" style="padding-bottom:5px;padding-top:3px;padding-left:50px;">
+                Tgl Lahir : {{$label->TANGGAL_LAHIR}}
+            
+            
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding-bottom:5px;padding-left:400px;">
+              {{$label->NAMA}}
+            </td>
+            <td colspan="3">
+                
+            </td>
+        </tr>
+
+
+    </table>
+@endforeach
 
 </body>
 </html>

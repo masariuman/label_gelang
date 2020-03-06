@@ -59,7 +59,7 @@ class Index extends Component {
                         className="btn btn-primary btn-xs"
                         target="_blank"
                     >
-                        <i className="fa fa-print"> Cetak Gelang Dewasa</i>
+                        <i className="fa fa-print"></i> Cetak Gelang Dewasa
                     </a>
                     &nbsp;
                     <a
