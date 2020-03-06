@@ -77,7 +77,7 @@
             <td colspan="4">
                 : @if($label->JENIS_KELAMIN === 1) <b>LAKI-LAKI</b>
                 @else
-                <b>PEREMPUAN</b>
+                <b style="font-family:sans-serif;">PEREMPUAN</b>
                 @endif
             </td>
         </tr>
