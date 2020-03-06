@@ -47,7 +47,7 @@ class Index extends Component {
             return this.state.data.map(data => (
                 <div key="1">
                     <a
-                        href={`/${data.no_rkm_medis}/label`}
+                        href={`/${data.NORM}/label`}
                         className="btn btn-success btn-xs"
                         target="_blank"
                     >
@@ -55,15 +55,15 @@ class Index extends Component {
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.no_rkm_medis}/gelang_dewasa`}
+                        href={`/${data.NORM}/gelang_dewasa`}
                         className="btn btn-primary btn-xs"
                         target="_blank"
                     >
-                        <i className="fa fa-print"> Cetak Gelang Dewasa</i>
+                        <i className="fa fa-print"></i> Cetak Gelang Dewasa
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.no_rkm_medis}/gelang_anak`}
+                        href={`/${data.NORM}/gelang_anak`}
                         className="btn btn-warning btn-xs"
                         target="_blank"
                     >
@@ -71,7 +71,7 @@ class Index extends Component {
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.no_rkm_medis}/gelang_anak`}
+                        href={`/${data.NORM}/tracer`}
                         className="btn btn-danger btn-xs"
                         target="_blank"
                     >
