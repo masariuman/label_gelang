@@ -73157,25 +73157,25 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: "1"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.no_rkm_medis, "/label"),
+            href: "/".concat(data.NORM, "/label"),
             className: "btn btn-success btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }), " Cetak Label"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.no_rkm_medis, "/gelang_dewasa"),
+            href: "/".concat(data.NORM, "/gelang_dewasa"),
             className: "btn btn-primary btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }, " Cetak Gelang Dewasa")), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.no_rkm_medis, "/gelang_anak"),
+            href: "/".concat(data.NORM, "/gelang_anak"),
             className: "btn btn-warning btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }), " Cetak Gelang Anak"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.no_rkm_medis, "/gelang_anak"),
+            href: "/".concat(data.NORM, "/gelang_anak"),
             className: "btn btn-danger btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
