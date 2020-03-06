@@ -47,7 +47,7 @@
         </tr>
 
         <tr>
-            <td colspan="2" style="padding-top:3px;width:70px;font-size:12px;">
+            <td colspan="2" style="padding-top:3px;width:70px;font-size:12px;font-tyo">
                 No RM
             </td>
             <td colspan="4" style="padding-top:3px;width:75px;">
