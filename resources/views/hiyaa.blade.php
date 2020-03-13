@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Ini Judul</title>
+        <title>RS UNTAN LABEL & GELANG</title>
         @include('hiyaa/meta')
         @include('hiyaa/script')
         @include('hiyaa/css')

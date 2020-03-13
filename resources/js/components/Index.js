@@ -5,11 +5,42 @@ class Index extends Component {
         super(props);
         this.state = {
             data: [],
-            cari: ""
+            cari: "",
+            awalan: "TN.",
+            tanggal_masuk: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderCari = this.renderCari.bind(this);
+        this.awalanChange = this.awalanChange.bind(this);
+        this.tanggalmasukChange = this.tanggalmasukChange.bind(this);
+    }
+
+    getTodayDate() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        }
+        if(mm<10){
+            mm='0'+mm;
+        }
+        var terbalik = yyyy+'-'+mm+'-'+dd;
+        return terbalik;
+    }
+
+    tanggalmasukChange(e) {
+        this.setState({
+            tanggal_masuk: e.target.value
+        });
+    }
+
+    awalanChange(e) {
+        this.setState({
+            awalan: e.target.value
+        });
     }
 
     handleChange(e) {
@@ -28,7 +59,8 @@ class Index extends Component {
             .then(response => {
                 this.setState({
                     data: [response.data.cari],
-                    cari: ""
+                    cari: "",
+                    tanggal_masuk: this.getTodayDate()
                 });
                 console.log("from handle sumit", response);
                 // console.log(this.state.data);
@@ -47,7 +79,7 @@ class Index extends Component {
             return this.state.data.map(data => (
                 <div key="1">
                     <a
-                        href={`/${data.NORM}/label`}
+                        href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/label`}
                         className="btn btn-success btn-xs"
                         target="_blank"
                     >
@@ -84,10 +116,12 @@ class Index extends Component {
                         <thead>
                             <tr>
                                 <th>No Rekam Medis</th>
+                                <th>Tanggal Masuk</th>
+                                <th>Awalan</th>
                                 <th>Nama Pasien</th>
                                 <th>No KTP</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
+                                {/* <th>Tempat Lahir</th> */}
                                 <th>Tanggal Lahir</th>
                                 <th>Alamat</th>
                             </tr>
@@ -95,10 +129,19 @@ class Index extends Component {
                         <tbody>
                             <tr>
                                 <td>{data.NORM}</td>
+                                <td><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
+                                <td><select name="AWALAN" id="exampleSelect" className="form-control" onChange={this.awalanChange}>
+                                    <option value="TN.">TN.</option>
+                                    <option value="NY.">NY.</option> 
+                                    <option value="NN.">NN.</option>
+                                    <option value="AN.">AN.</option>
+                                    <option value="BY.">BY.</option>
+                                    <option value="BY.NY">BY.NY</option>
+                                    </select></td>
                                 <td>{data.NAMA}</td>
                                 <td>{data.WILAYAH}</td>
-                                <td>{data.JENIS_KELAMIN === 1 ? "L" : "P"}</td>
-                                <td>{data.TEMPAT_LAHIR}</td>
+                                <td>{data.JENIS_KELAMIN === 1 ? "Laki-Laki" : "Perempuan"}</td>
+                                {/* <td>{data.TEMPAT_LAHIR}</td> */}
                                 <td>{data.TANGGAL_LAHIR}</td>
                                 <td>{data.ALAMAT}</td>
                             </tr>
@@ -109,9 +152,12 @@ class Index extends Component {
         }
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.getTodayDate();
+    }
 
-    componentDidUpdate() {}
+    componentDidUpdate() {
+    }
 
     render() {
         return (
