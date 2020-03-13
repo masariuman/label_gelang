@@ -10,10 +10,10 @@ use Carbon\Carbon;
 class PrintController extends Controller
 {
      // Template
-     public function templateLabel($id)
+     public function templateLabel($id, $awalan, $tgl_masuk)
 
      {
-
+         // dd($awalan);
 
         $label = Data::where('NORM',  $id)->get();
         $norm = $label[0]->NORM;
@@ -29,11 +29,14 @@ class PrintController extends Controller
 
         $label[0]['NORM'] = $norm;
         $label[0]['TANGGAL_LAHIR'] = $lahir;
+        $label[0]['NAMA'] = $awalan.' '.$label[0]['NAMA'];
         $data['label'] = $label;
 
         // // $count = count($label);
         // // $data['count'] = $count;
-        $data['today'] = date('d/m/Y');
+        $tanggal_masuk = date("d/m/Y", strtotime($tgl_masuk));
+        $data['TANGGAL_MASUK'] = $tanggal_masuk;
+
 
         $pdf = PDF::loadView('print.label', $data)->setPaper([0,0,80.732,170.079], 'landscape');
         return $pdf->stream();
