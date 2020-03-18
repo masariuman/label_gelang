@@ -87,7 +87,7 @@ class Index extends Component {
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.NORM}/gelang_dewasa`}
+                        href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/gelang_dewasa`}
                         className="btn btn-primary btn-xs"
                         target="_blank"
                     >
@@ -95,7 +95,7 @@ class Index extends Component {
                     </a>
                     &nbsp;
                     <a
-                        href={`/${data.NORM}/gelang_anak`}
+                        href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/gelang_anak`}
                         className="btn btn-warning btn-xs"
                         target="_blank"
                     >

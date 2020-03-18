@@ -45,17 +45,32 @@ class PrintController extends Controller
         // return $pdf->download('laporan-pdf.pdf')
      }
 
-     public function templateGelangDewasa($id)
+     public function templateGelangDewasa($id, $awalan, $tgl_masuk)
 
      {
+         // dd($awalan);
 
-        $label = Data::where('NORM',  $id)->get();
-
-        $data['label'] = $label;
-
-        // $count = count($label);
-        // $data['count'] = $count;
-        $data['today'] = date('d/m/Y');
+         $label = Data::where('NORM',  $id)->get();
+         $norm = $label[0]->NORM;
+         $length = strlen($norm);
+         for ($i=$length; $i < 6; $i++) {
+                 $norm = "0" . $norm;
+         }
+ 
+         $parts = str_split($norm, $split_length = 2);
+ 
+         $norm = $parts[0].".".$parts[1].".".$parts[2];
+         $lahir = date("d/m/Y", strtotime($label[0]['TANGGAL_LAHIR']));
+ 
+         $label[0]['NORM'] = $norm;
+         $label[0]['TANGGAL_LAHIR'] = $lahir;
+         $label[0]['NAMA'] = $awalan.' '.$label[0]['NAMA'];
+         $data['label'] = $label;
+ 
+         // // $count = count($label);
+         // // $data['count'] = $count;
+         $tanggal_masuk = date("d/m/Y", strtotime($tgl_masuk));
+         $data['TANGGAL_MASUK'] = $tanggal_masuk;
 
         $pdf = PDF::loadView('print.gelangdewasa', $data)->setPaper([0, 0, 70.98, 600.85], 'landscape');
         return $pdf->stream();
@@ -64,17 +79,33 @@ class PrintController extends Controller
         // return $pdf->download('laporan-pdf.pdf')
      }
 
-     public function templateGelangAnak($id)
+     public function templateGelangAnak($id, $awalan, $tgl_masuk)
 
      {
 
+         // dd($awalan);
+
          $label = Data::where('NORM',  $id)->get();
-
+         $norm = $label[0]->NORM;
+         $length = strlen($norm);
+         for ($i=$length; $i < 6; $i++) {
+                 $norm = "0" . $norm;
+         }
+ 
+         $parts = str_split($norm, $split_length = 2);
+ 
+         $norm = $parts[0].".".$parts[1].".".$parts[2];
+         $lahir = date("d/m/Y", strtotime($label[0]['TANGGAL_LAHIR']));
+ 
+         $label[0]['NORM'] = $norm;
+         $label[0]['TANGGAL_LAHIR'] = $lahir;
+         $label[0]['NAMA'] = $awalan.' '.$label[0]['NAMA'];
          $data['label'] = $label;
-
-         // $count = count($label);
-         // $data['count'] = $count;
-         $data['today'] = date('d/m/Y');
+ 
+         // // $count = count($label);
+         // // $data['count'] = $count;
+         $tanggal_masuk = date("d/m/Y", strtotime($tgl_masuk));
+         $data['TANGGAL_MASUK'] = $tanggal_masuk;
 
          $pdf = PDF::loadView('print.gelanganak', $data)->setPaper([0, 0, 70.98, 600.85], 'landscape');
          return $pdf->stream();
