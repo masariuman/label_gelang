@@ -57,14 +57,14 @@ class Track extends Component {
             return this.state.data.map(data => (
                 <tr key={data.no_rawat}>
                     <th scope="row">{data.nomor}</th>
-                    <td>{data.no_rkm_medis}</td>
-                    <td>{data.data.nm_pasien}</td>
-                    <td>{data.tgl_registrasi}</td>
+                    <td>{data.NORM}</td>
+                    <td>{data.data.NAMA}</td>
+                    {/* <td>{data.tgl_registrasi}</td>
                     <td>{data.poli.nm_poli}</td>
-                    <td>{data.dokter.nm_dokter}</td>
+                    <td>{data.dokter.nm_dokter}</td> */}
                     <td>
                         <a
-                            href={`/tracer/${data.no_rkm_medis}/print`}
+                            href={`/tracer/${data.NORM}/print`}
                             className="btn btn-success btn-xs"
                             target="_blank"
                         >
@@ -138,10 +138,10 @@ class Track extends Component {
                                         <th>NO</th>
                                         <th>MR</th>
                                         <th>NAMA</th>
-                                        <th>TANGGAL</th>
+                                        {/* <th>TANGGAL</th>
                                         <th>POLI TUJUAN</th>
                                         <th>DOKTER</th>
-                                        <th>AKSI</th>
+                                        <th>AKSI</th> */}
                                     </tr>
                                 </thead>
                                 <tbody>{this.renderCari()}</tbody>

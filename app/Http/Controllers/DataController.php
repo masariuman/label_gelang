@@ -37,13 +37,19 @@ class DataController extends Controller
 
     public function cariTracerData(Request $request)
     {
+        // $input = $request->cari;
+        // $data = regPeriksa::where('no_rkm_medis', 'like', '%' . $input . '%')->orderBy("tgl_registrasi", "DESC")->with(['data','poli','dokter'])->get();
+        // $count = 1;
+        // foreach ($data as $datas) {
+        //     $datas['nomor'] = $count;
+        //     $count++;
+        // }
+        // return response()->json([
+        //     'cari' => $data
+        // ]);
+        
         $input = $request->cari;
-        $data = regPeriksa::where('no_rkm_medis', 'like', '%' . $input . '%')->orderBy("tgl_registrasi", "DESC")->with(['data','poli','dokter'])->get();
-        $count = 1;
-        foreach ($data as $datas) {
-            $datas['nomor'] = $count;
-            $count++;
-        }
+        $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
         return response()->json([
             'cari' => $data
 		]);

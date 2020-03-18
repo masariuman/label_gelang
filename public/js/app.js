@@ -73203,13 +73203,13 @@ function (_Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }), " Cetak Label"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.NORM, "/gelang_dewasa"),
+            href: "/".concat(data.NORM, "/").concat(_this3.state.awalan, "/").concat(_this3.state.tanggal_masuk, "/gelang_dewasa"),
             className: "btn btn-primary btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
           }), " Cetak Gelang Dewasa"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/".concat(data.NORM, "/gelang_anak"),
+            href: "/".concat(data.NORM, "/").concat(_this3.state.awalan, "/").concat(_this3.state.tanggal_masuk, "/gelang_anak"),
             className: "btn btn-warning btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -73410,8 +73410,8 @@ function (_Component) {
             key: data.no_rawat
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
             scope: "row"
-          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.no_rkm_medis), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.data.nm_pasien), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tgl_registrasi), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.poli.nm_poli), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.dokter.nm_dokter), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            href: "/tracer/".concat(data.no_rkm_medis, "/print"),
+          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.data.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            href: "/tracer/".concat(data.NORM, "/print"),
             className: "btn btn-success btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -73472,7 +73472,7 @@ function (_Component) {
         className: "table-responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "mb-0 table"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NAMA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "TANGGAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "POLI TUJUAN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "DOKTER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "AKSI"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "MR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "NAMA"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn-wide mb-2 mr-2 btn-icon btn-icon-right btn-shadow btn-pill btn btn-outline-success",
         onClick: this.loadMore
       }, "More") : ""))));
