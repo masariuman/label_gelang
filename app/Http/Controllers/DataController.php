@@ -15,6 +15,7 @@ class DataController extends Controller
     {
         $input = $request->cari;
         $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
+        $data['TANGGAL_LAHIR'] = date("d/m/Y", strtotime($data['TANGGAL_LAHIR']));
         return response()->json([
             'cari' => $data
 		]);

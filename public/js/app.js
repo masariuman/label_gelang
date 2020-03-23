@@ -73410,7 +73410,7 @@ function (_Component) {
             key: data.no_rawat
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
             scope: "row"
-          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.data.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          }, data.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             href: "/tracer/".concat(data.NORM, "/print"),
             className: "btn btn-success btn-xs",
             target: "_blank"
