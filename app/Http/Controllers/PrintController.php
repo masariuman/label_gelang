@@ -145,17 +145,17 @@ class PrintController extends Controller
          for ($i=$length; $i < 6; $i++) {
                  $norm = "0" . $norm;
          }
- 
+
          $parts = str_split($norm, $split_length = 2);
- 
+
          $norm = $parts[0].".".$parts[1].".".$parts[2];
          $lahir = date("d/m/Y", strtotime($label[0]['TANGGAL_LAHIR']));
- 
+
          $label[0]['NORM'] = $norm;
          $label[0]['TANGGAL_LAHIR'] = $lahir;
          $label[0]['NAMA'] = $awalan.' '.$label[0]['NAMA'];
          $data['label'] = $label;
- 
+
          // // $count = count($label);
          // // $data['count'] = $count;
          $tanggal_masuk = date("d/m/Y", strtotime($tgl_masuk));
@@ -164,12 +164,23 @@ class PrintController extends Controller
          $peminjam = $peminjam;
          $data['PEMINJAM'] = $peminjam;
 
+         $data["pendaftaran"] = Pendaftaran::where('NORM', $id)->whereDate('TANGGAL',$tgl_masuk)->first();
+         if ($data["pendaftaran"]) {
+            $data["tujuan"] = Tujuan::where('NOPEN',$data["pendaftaran"]->NOMOR)->first();
+            $data["poli"] = Ruang::where('ID',$data["tujuan"]->RUANGAN)->first();
+            $data["poli"] = $data["poli"]["DESKRIPSI"];
+         }
+         else {
+            $data["poli"] = "";
+         }
+
+
         //  dd($peminjam);
- 
- 
+
+
          $pdf = PDF::loadView('print.tracer', $data)->setPaper([0,0,80.732,170.079], 'landscape');
          return $pdf->stream();
- 
+
          // return view('print.label', $data);
          // return $pdf->download('laporan-pdf.pdf')
      }
