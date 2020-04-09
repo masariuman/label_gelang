@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class regPeriksa extends Model
 {
+    protected $connection = 'mysql';
     protected $table = 'reg_periksa';
 
     public function dokter()

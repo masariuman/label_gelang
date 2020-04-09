@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Data extends Model
 {
+    protected $connection = 'mysql';
     protected $table = 'pasien';
 
     // public function regperiksa()
