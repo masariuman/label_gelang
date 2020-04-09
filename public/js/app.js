@@ -73368,14 +73368,14 @@ function (_Component) {
       var yyyy = today.getFullYear();
 
       if (dd < 10) {
-        dd = '0' + dd;
+        dd = "0" + dd;
       }
 
       if (mm < 10) {
-        mm = '0' + mm;
+        mm = "0" + mm;
       }
 
-      var terbalik = yyyy + '-' + mm + '-' + dd;
+      var terbalik = yyyy + "-" + mm + "-" + dd;
       return terbalik;
     }
   }, {
@@ -73432,7 +73432,7 @@ function (_Component) {
 
       axios.get("/tracer/data").then(function (response) {
         _this3.setState({
-          data: response.data.cari
+          data: response.data.cari.pasien
         }); // console.log(response.data.cari);
 
       });
@@ -74340,8 +74340,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

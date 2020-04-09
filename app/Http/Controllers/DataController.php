@@ -30,12 +30,16 @@ class DataController extends Controller
         //
 
         $data['pendaftaran'] = Pendaftaran::whereDate('TANGGAL', Carbon::today())->orderBy("TANGGAL", "DESC")->get();
+        // dd($data['pendaftaran']);
 
         $count = 1;
-        foreach ($data as $datas) {
-            $datas['nomor'] = $count;
-            $data['pasien'] = Pasien::where('NORM',$data['pendaftaran']['NORM'])->get();
+        $nom = 0;
+        foreach ($data['pendaftaran'] as $datas) {
+
+            $data['pasien'][] = Pasien::where('NORM',$datas->NORM)->first();
+            $data['pasien'][$nom]['nomor'] = $count;
             $count++;
+            $nom++;
         }
 		return response()->json([
             'cari' => $data
