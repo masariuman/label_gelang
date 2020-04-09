@@ -6,6 +6,7 @@ Route::post('/', 'DataController@cari');
 Route::get('/{id}/{awalan}/{tgl_masuk}/label', 'PrintController@templateLabel');
 Route::get('/{id}/{awalan}/{tgl_masuk}/gelang_dewasa', 'PrintController@templateGelangDewasa');
 Route::get('/{id}/{awalan}/{tgl_masuk}/gelang_anak', 'PrintController@templateGelangAnak');
+Route::get('/{id}/{awalan}/{tgl_masuk}/testtujuan', 'PrintController@testtujuan');
 
 
 
@@ -19,6 +20,7 @@ Route::get('/test', 'DataController@test');
 route::get('/templategelangdewasa','PrintController@templateGelangDewasa');
 route::get('/templategelanganak','PrintController@templateGelangAnak');
 route::get('/templatetracer','PrintController@templateTracer');
+
 
 
 Route::any('{all}', function () {
