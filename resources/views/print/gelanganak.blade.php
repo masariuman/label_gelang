@@ -33,7 +33,7 @@
 
 <body>
 @foreach($label as $i => $label)
-<table border="0" cellpadding="1" cellspacing="0" align="center" style="margin:0;padding:0; width:700px;">
+<table border="0" cellpadding="1" cellspacing="0" align="center" style="margin:0;padding:0; width:700px;margin-left:-175px;margin-top:-15px;">
 
         <tr>
             <!-- <td colspan="1" style="padding-left:400px;">
@@ -56,8 +56,8 @@
             <td colspan="2" style="padding-bottom:5px;padding-left:400px;font-size:12px;">
                <b style="font-family:sans-serif;">{{$label->NORM}}</b>
             </td>
-            <td class="kanan" colspan="3" style="padding-bottom:5px;padding-top:3px;padding-left:50px;">
-            <b style="font-family:sans-serif;"> Tgl Lahir : {{$label->TANGGAL_LAHIR}}</b>
+            <td class="kanan" colspan="3" style="padding-bottom:5px;padding-top:3px;padding-left:0px;">
+            <b style="font-family:sans-serif;"> Tanggal Lahir : {{$label->TANGGAL_LAHIR}}</b>
             
             
             </td>
