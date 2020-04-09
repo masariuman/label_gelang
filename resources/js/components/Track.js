@@ -85,6 +85,7 @@ class Track extends Component {
         axios.get("/tracer/data").then((response) => {
             this.setState({
                 data: response.data.cari.pasien,
+                tanggal_masuk: this.getTodayDate(),
             });
             // console.log(response.data.cari);
         });
