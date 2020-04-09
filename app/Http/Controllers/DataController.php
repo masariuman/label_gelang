@@ -25,6 +25,7 @@ class DataController extends Controller
     public function tracerData()
     {
         //
+        
         $data = regPeriksa::whereDate('tgl_registrasi', Carbon::today())->orderBy("tgl_registrasi", "DESC")->with(['data','poli','dokter'])->get();
         $count = 1;
         foreach ($data as $datas) {
@@ -51,6 +52,7 @@ class DataController extends Controller
         
         $input = $request->cari;
         $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
+        $data['TANGGAL_LAHIR'] = date("d/m/Y", strtotime($data['TANGGAL_LAHIR']));
         return response()->json([
             'cari' => $data
 		]);

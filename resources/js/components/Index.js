@@ -119,7 +119,6 @@ class Index extends Component {
                                 <th>Tanggal Masuk</th>
                                 <th>Awalan</th>
                                 <th>Nama Pasien</th>
-                                <th>No KTP</th>
                                 <th>Jenis Kelamin</th>
                                 {/* <th>Tempat Lahir</th> */}
                                 <th>Tanggal Lahir</th>
@@ -139,7 +138,6 @@ class Index extends Component {
                                     <option value="BY.NY">BY.NY</option>
                                     </select></td>
                                 <td>{data.NAMA}</td>
-                                <td>{data.WILAYAH}</td>
                                 <td>{data.JENIS_KELAMIN === 1 ? "Laki-Laki" : "Perempuan"}</td>
                                 {/* <td>{data.TEMPAT_LAHIR}</td> */}
                                 <td>{data.TANGGAL_LAHIR}</td>

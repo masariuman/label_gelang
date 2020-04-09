@@ -7,12 +7,43 @@ class Track extends Component {
             data: [],
             pagination: [],
             cari: "",
-            url: "/tracer/data"
+            url: "/tracer/data",
+            awalan: "TN.",
+            tanggal_masuk: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderCari = this.renderCari.bind(this);
         this.getData = this.getData.bind(this);
+        this.awalanChange = this.awalanChange.bind(this);
+        this.tanggalmasukChange = this.tanggalmasukChange.bind(this);
+    }
+
+    getTodayDate() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        }
+        if(mm<10){
+            mm='0'+mm;
+        }
+        var terbalik = yyyy+'-'+mm+'-'+dd;
+        return terbalik;
+    }
+
+    tanggalmasukChange(e) {
+        this.setState({
+            tanggal_masuk: e.target.value
+        });
+    }
+
+    awalanChange(e) {
+        this.setState({
+            awalan: e.target.value
+        });
     }
 
     handleChange(e) {
@@ -30,8 +61,9 @@ class Track extends Component {
             })
             .then(response => {
                 this.setState({
-                    data: response.data.cari,
-                    cari: ""
+                    data: [response.data.cari],
+                    cari: "",
+                    tanggal_masuk: this.getTodayDate()
                 });
             })
             .catch(error => {
@@ -55,13 +87,22 @@ class Track extends Component {
             ));
         } else {
             return this.state.data.map(data => (
-                <tr key={data.no_rawat}>
-                    <th scope="row">{data.nomor}</th>
+                <tr key={data.NORM}>
                     <td>{data.NORM}</td>
+                    <td><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
+                    <td><select name="AWALAN" id="exampleSelect" className="form-control" onChange={this.awalanChange}>
+                                    <option value="TN.">TN.</option>
+                                    <option value="NY.">NY.</option> 
+                                    <option value="NN.">NN.</option>
+                                    <option value="AN.">AN.</option>
+                                    <option value="BY.">BY.</option>
+                                    <option value="BY.NY">BY.NY</option>
+                                    </select></td>
                     <td>{data.NAMA}</td>
-                    {/* <td>{data.tgl_registrasi}</td>
-                    <td>{data.poli.nm_poli}</td>
-                    <td>{data.dokter.nm_dokter}</td> */}
+                    <td>{data.JENIS_KELAMIN === 1 ? "Laki-Laki" : "Perempuan"}</td>
+                    {/* <td>{data.TEMPAT_LAHIR}</td> */}
+                    <td>{data.TANGGAL_LAHIR}</td>
+                    <td>{data.ALAMAT}</td>
                     <td>
                         <a
                             href={`/tracer/${data.NORM}/print`}
@@ -135,13 +176,16 @@ class Track extends Component {
                             <table className="mb-0 table">
                                 <thead>
                                     <tr>
-                                        <th>NO</th>
-                                        <th>MR</th>
-                                        <th>NAMA</th>
-                                        {/* <th>TANGGAL</th>
-                                        <th>POLI TUJUAN</th>
-                                        <th>DOKTER</th>
-                                        <th>AKSI</th> */}
+                                       <th>No Rekam Medis</th>
+                                       <th>Tanggal Masuk</th>
+                                       <th>Awalan</th>
+                                       <th>Nama Pasien</th>
+        
+                                       <th>Jenis Kelamin</th>
+                                       {/* <th>Tempat Lahir</th> */}
+                                       <th>Tanggal Lahir</th>
+                                       <th>Alamat</th>
+                                       <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>{this.renderCari()}</tbody>
