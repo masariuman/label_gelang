@@ -72,7 +72,7 @@ class PrintController extends Controller
          $tanggal_masuk = date("d/m/Y", strtotime($tgl_masuk));
          $data['TANGGAL_MASUK'] = $tanggal_masuk;
 
-        $pdf = PDF::loadView('print.gelangdewasa', $data)->setPaper([0, 0, 70.98, 600.85], 'landscape');
+        $pdf = PDF::loadView('print.gelangdewasa', $data)->setPaper([0, 0, 70.98, 700.85], 'landscape');
         return $pdf->stream();
 
         // return view('print.gelangdewasa', compact('label'));

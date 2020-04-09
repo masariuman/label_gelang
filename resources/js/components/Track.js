@@ -58,7 +58,7 @@ class Track extends Component {
                 <tr key={data.no_rawat}>
                     <th scope="row">{data.nomor}</th>
                     <td>{data.NORM}</td>
-                    <td>{data.data.NAMA}</td>
+                    <td>{data.NAMA}</td>
                     {/* <td>{data.tgl_registrasi}</td>
                     <td>{data.poli.nm_poli}</td>
                     <td>{data.dokter.nm_dokter}</td> */}
