@@ -102,13 +102,13 @@ class Index extends Component {
                         <i className="fa fa-print"></i> Cetak Gelang Anak
                     </a>
                     &nbsp;
-                    <a
+                    {/* <a
                         href={`/${data.NORM}/gelang_anak`}
                         className="btn btn-danger btn-xs"
                         target="_blank"
                     >
                         <i className="fa fa-print"></i> Cetak Tracer
-                    </a>
+                    </a> */}
                     &nbsp;
                     <br></br>
                     <br></br>

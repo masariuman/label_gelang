@@ -9,7 +9,8 @@ class Track extends Component {
             cari: "",
             url: "/tracer/data",
             awalan: "TN.",
-            tanggal_masuk: ""
+            tanggal_masuk: "",
+            peminjam: "%20"
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,6 +18,7 @@ class Track extends Component {
         this.getData = this.getData.bind(this);
         this.awalanChange = this.awalanChange.bind(this);
         this.tanggalmasukChange = this.tanggalmasukChange.bind(this);
+        this.peminjamChange = this.peminjamChange.bind(this);
     }
 
     getTodayDate() {
@@ -53,6 +55,13 @@ class Track extends Component {
         // console.log(e.target.value);
     }
 
+    peminjamChange(e) {
+        this.setState({
+            peminjam: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         axios
@@ -63,7 +72,8 @@ class Track extends Component {
                 this.setState({
                     data: [response.data.cari],
                     cari: "",
-                    tanggal_masuk: this.getTodayDate()
+                    tanggal_masuk: this.getTodayDate(),
+                    peminjam: "%20",
                 });
             })
             .catch(error => {
@@ -87,6 +97,7 @@ class Track extends Component {
             ));
         } else {
             return this.state.data.map(data => (
+               
                 <tr key={data.NORM}>
                     <td>{data.NORM}</td>
                     <td><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
@@ -103,16 +114,21 @@ class Track extends Component {
                     {/* <td>{data.TEMPAT_LAHIR}</td> */}
                     <td>{data.TANGGAL_LAHIR}</td>
                     <td>{data.ALAMAT}</td>
+                    <td><input name="PEMINJAM" placeholder="Peminjam" type="text" className="form-control" required onChange={this.peminjamChange} value={this.state.peminjamChange} /></td>
                     <td>
-                        <a
-                            href={`/tracer/${data.NORM}/print`}
+                      
+                        <a  onSubmit={this.handleSubmit}
+                            // href={`/tracer/${data.NORM}/print`}
+                            href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/${this.state.peminjam}/tracer`}
                             className="btn btn-success btn-xs"
                             target="_blank"
                         >
+                            
                             <i className="fa fa-print"></i> Cetak Tracer
                         </a>
                     </td>
                 </tr>
+                
             ));
         }
     }
@@ -162,6 +178,7 @@ class Track extends Component {
                                 ENTER UNTUK CARI
                             </button>
                         </form>
+                        <br></br>
                         <button
                             type="button"
                             className="btn-square btn-hover-shine btn btn-primary"
@@ -173,7 +190,7 @@ class Track extends Component {
                         <hr />
                         <p></p>
                         <div className="table-responsive">
-                            <table className="mb-0 table">
+                            <table className="mb-0 table table-bordered">
                                 <thead>
                                     <tr>
                                        <th>No Rekam Medis</th>
@@ -185,6 +202,7 @@ class Track extends Component {
                                        {/* <th>Tempat Lahir</th> */}
                                        <th>Tanggal Lahir</th>
                                        <th>Alamat</th>
+                                       <th>Peminjam</th>
                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
