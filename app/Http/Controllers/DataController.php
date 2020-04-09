@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Data;
 use App\regPeriksa;
 use App\Pasien;
+use App\Tujuan;
+use App\Pendaftaran;
+use App\Ruang;
 use PDF;
 use Carbon\Carbon;
 
@@ -25,11 +28,13 @@ class DataController extends Controller
     public function tracerData()
     {
         //
-        
-        $data = regPeriksa::whereDate('tgl_registrasi', Carbon::today())->orderBy("tgl_registrasi", "DESC")->with(['data','poli','dokter'])->get();
+
+        $data['pendaftaran'] = Pendaftaran::whereDate('TANGGAL', Carbon::today())->orderBy("TANGGAL", "DESC")->get();
+
         $count = 1;
         foreach ($data as $datas) {
             $datas['nomor'] = $count;
+            $data['pasien'] = Pasien::where('NORM',$data['pendaftaran']['NORM'])->get();
             $count++;
         }
 		return response()->json([
@@ -49,7 +54,7 @@ class DataController extends Controller
         // return response()->json([
         //     'cari' => $data
         // ]);
-        
+
         $input = $request->cari;
         $data = Data::where('NORM', 'like', '%' . $input . '%')->first();
         $data['TANGGAL_LAHIR'] = date("d/m/Y", strtotime($data['TANGGAL_LAHIR']));
@@ -63,8 +68,8 @@ class DataController extends Controller
         //
         // $data = Data::where('NORM', 'like', '%' . $id . '%')->first();
         // dd($data);
-        
- 
+
+
     }
 
 
