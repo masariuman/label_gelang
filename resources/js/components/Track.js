@@ -86,6 +86,7 @@ class Track extends Component {
             this.setState({
                 data: response.data.cari.pasien,
                 tanggal_masuk: this.getTodayDate(),
+                peminjam: "%20",
             });
             // console.log(response.data.cari);
         });
