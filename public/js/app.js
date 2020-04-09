@@ -73432,7 +73432,9 @@ function (_Component) {
 
       axios.get("/tracer/data").then(function (response) {
         _this3.setState({
-          data: response.data.cari.pasien
+          data: response.data.cari.pasien,
+          tanggal_masuk: _this3.getTodayDate(),
+          peminjam: "%20"
         }); // console.log(response.data.cari);
 
       });
