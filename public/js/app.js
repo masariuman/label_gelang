@@ -73216,7 +73216,7 @@ function (_Component) {
             className: "fa fa-print"
           }), " Cetak Gelang Anak"), "\xA0", "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
             className: "mb-0 table table-bordered"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Masuk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Awalan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Alamat"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Masuk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Awalan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Jenis Kelamin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Alamat"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORMTITIK), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             name: "TANGGAL_MASUK",
             placeholder: "Tanggal Masuk",
             type: "date",
@@ -73454,7 +73454,7 @@ function (_Component) {
         return this.state.data.map(function (data) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
             key: data.NORM
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NORMTITIK), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             name: "TANGGAL_MASUK",
             placeholder: "Tanggal Masuk",
             type: "date",
@@ -73462,7 +73462,9 @@ function (_Component) {
             required: true,
             onChange: _this4.tanggalmasukChange,
             value: _this4.state.tanggal_masuk
-          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthawalan"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
             name: "AWALAN",
             id: "exampleSelect",
             className: "form-control",
@@ -73487,11 +73489,13 @@ function (_Component) {
             required: true,
             onChange: _this4.peminjamChange,
             value: _this4.state.peminjamChange
-          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthaksi"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
             onSubmit: _this4.handleSubmit // href={`/tracer/${data.NORM}/print`}
             ,
             href: "/".concat(data.NORM, "/").concat(_this4.state.awalan, "/").concat(_this4.state.tanggal_masuk, "/").concat(_this4.state.peminjam, "/tracer"),
-            className: "btn btn-success btn-xs",
+            className: "btn btn-alternate btn-xs",
             target: "_blank"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fa fa-print"
@@ -74313,7 +74317,7 @@ function (_Component) {
         className: "vertical-nav-menu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "app-sidebar__heading"
-      }, "PETUNJUK")))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Aplikasi Label, Gelang & Tracer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Rumah Sakit"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Universitas Tanjungpura"), " ")))));
     }
   }]);
 
@@ -74342,8 +74346,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

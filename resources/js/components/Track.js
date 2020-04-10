@@ -100,7 +100,7 @@ class Track extends Component {
         } else {
             return this.state.data.map((data) => (
                 <tr key={data.NORM}>
-                    <td>{data.NORM}</td>
+                    <td>{data.NORMTITIK}</td>
                     <td>
                         <input
                             name="TANGGAL_MASUK"
@@ -112,7 +112,7 @@ class Track extends Component {
                             value={this.state.tanggal_masuk}
                         />
                     </td>
-                    <td>
+                    <td className="widthawalan">
                         <select
                             name="AWALAN"
                             id="exampleSelect"
@@ -145,12 +145,12 @@ class Track extends Component {
                             value={this.state.peminjamChange}
                         />
                     </td>
-                    <td>
+                    <td className="widthaksi">
                         <a
                             onSubmit={this.handleSubmit}
                             // href={`/tracer/${data.NORM}/print`}
                             href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/${this.state.peminjam}/tracer`}
-                            className="btn btn-success btn-xs"
+                            className="btn btn-alternate btn-xs"
                             target="_blank"
                         >
                             <i className="fa fa-print"></i> Cetak Tracer
