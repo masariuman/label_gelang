@@ -51,9 +51,11 @@ class DataController extends Controller
 
         $count = 1;
         $nom = 0;
+    
+        if(!empty($data['pendaftaran'][0])) {
         foreach ($data['pendaftaran'] as $datas) {
 
-            $data['pasien'][] = Pasien::where('NORM',$datas->NORM)->first();
+            $data['pasien'][] = Pasien::where('NORM',$datas->NORM)->first(); 
 
 
             $norm = $data['pasien'][$nom]['NORM'];
@@ -75,6 +77,10 @@ class DataController extends Controller
             $count++;
             $nom++;
         }
+    }
+    else {
+        $data['pasien'] = $data['pendaftaran'];
+     }
 		return response()->json([
             'cari' => $data
 		]);
