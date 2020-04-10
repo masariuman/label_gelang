@@ -127,7 +127,7 @@ class Index extends Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{data.NORM}</td>
+                                <td>{data.NORMTITIK}</td>
                                 <td><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
                                 <td><select name="AWALAN" id="exampleSelect" className="form-control" onChange={this.awalanChange}>
                                     <option value="TN.">TN.</option>

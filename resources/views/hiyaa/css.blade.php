@@ -2,6 +2,12 @@
 <link href="https://fonts.googleapis.com/css?family=Yatra+One&display=swap" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
 <style>
+    .widthawalan{
+        width: 90px;
+    }
+    .widthaksi{
+        width: 135px;
+    }
     .width50px{
         width: 50px;
     }
