@@ -25,12 +25,8 @@ class DataController extends Controller
         for ($i=$length; $i < 6; $i++) {
                 $norm = "0" . $norm;
         }
-
         $parts = str_split($norm, $split_length = 2);
-
         $norm = $parts[0].".".$parts[1].".".$parts[2];
-      
-
         $data['NORMTITIK'] = $norm;
 
 
@@ -47,7 +43,9 @@ class DataController extends Controller
         //
 
         $data['pendaftaran'] = Pendaftaran::whereDate('TANGGAL', Carbon::today())->orderBy("TANGGAL", "DESC")->get();
+        
         // dd($data['pendaftaran']);
+
 
         $count = 1;
         $nom = 0;
@@ -63,16 +61,26 @@ class DataController extends Controller
             for ($i=$length; $i < 6; $i++) {
                     $norm = "0" . $norm;
             }
-    
             $parts = str_split($norm, $split_length = 2);
-    
             $norm = $parts[0].".".$parts[1].".".$parts[2];
             $lahir = date("d/m/Y", strtotime($data['pasien'][$nom]['TANGGAL_LAHIR']));
-    
             $norm = $data['pasien'][$nom]['NORMTITIK'] = $norm;
             
 
             $data['pasien'][$nom]['TANGGAL_LAHIR'] = date("d/m/Y", strtotime($data['pasien'][$nom]['TANGGAL_LAHIR']));
+
+
+            $pendaftaran = Pendaftaran::where('NORM', $datas->NORM)->whereDate('TANGGAL', Carbon::today())->first();
+            if ($pendaftaran) {
+                $tujuan = Tujuan::where('NOPEN',$pendaftaran->NOMOR)->first();
+                $ruang = Ruang::where('ID',$tujuan->RUANGAN)->first();
+                $data['pasien'][$nom]["poli"] = $ruang->DESKRIPSI;
+            }
+            else {
+                $data['pasien'][$nom]["poli"] = "";
+            }
+
+
             $data['pasien'][$nom]['nomor'] = $count;
             $count++;
             $nom++;
@@ -108,12 +116,8 @@ class DataController extends Controller
         for ($i=$length; $i < 6; $i++) {
                 $norm = "0" . $norm;
         }
-
         $parts = str_split($norm, $split_length = 2);
-
         $norm = $parts[0].".".$parts[1].".".$parts[2];
-
-
         $data['NORMTITIK'] = $norm;
 
         

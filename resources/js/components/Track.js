@@ -100,13 +100,13 @@ class Track extends Component {
         } else {
             return this.state.data.map((data) => (
                 <tr key={data.NORM}>
-                    <td>{data.NORMTITIK}</td>
-                    <td>
+                    <td className="widthnorm">{data.NORMTITIK}</td>
+                    <td className="widthtglmasuk">
                         <input
                             name="TANGGAL_MASUK"
                             placeholder="Tanggal Masuk"
                             type="date"
-                            className="form-control"
+                            className="form-control widthtglmasuk"
                             required
                             onChange={this.tanggalmasukChange}
                             value={this.state.tanggal_masuk}
@@ -116,7 +116,7 @@ class Track extends Component {
                         <select
                             name="AWALAN"
                             id="exampleSelect"
-                            className="form-control"
+                            className="form-control widthawalan"
                             onChange={this.awalanChange}
                         >
                             <option value="TN.">TN.</option>
@@ -128,24 +128,25 @@ class Track extends Component {
                         </select>
                     </td>
                     <td>{data.NAMA}</td>
-                    <td>
-                        {data.JENIS_KELAMIN === 1 ? "Laki-Laki" : "Perempuan"}
+                    <td className="widthjk">
+                        {data.JENIS_KELAMIN === 1 ? "L" : "L"}
                     </td>
+                    <td>{data.poli}</td>
                     {/* <td>{data.TEMPAT_LAHIR}</td> */}
-                    <td>{data.TANGGAL_LAHIR}</td>
-                    <td>{data.ALAMAT}</td>
-                    <td>
+                    <td className="widthlahir">{data.TANGGAL_LAHIR}</td>
+                    {/* <td>{data.ALAMAT}</td> */}
+                    <td className="widthpeminjam">
                         <input
                             name="PEMINJAM"
                             placeholder="Peminjam"
                             type="text"
-                            className="form-control"
+                            className="form-control widthpeminjam"
                             required
                             onChange={this.peminjamChange}
                             value={this.state.peminjamChange}
                         />
                     </td>
-                    <td className="widthaksi">
+                    <td className="widthcetak">
                         <a
                             onSubmit={this.handleSubmit}
                             // href={`/tracer/${data.NORM}/print`}
@@ -153,7 +154,7 @@ class Track extends Component {
                             className="btn btn-alternate btn-xs"
                             target="_blank"
                         >
-                            <i className="fa fa-print"></i> Cetak Tracer
+                            <i className="fa fa-print"></i> Print
                         </a>
                     </td>
                 </tr>
@@ -206,14 +207,14 @@ class Track extends Component {
                                 ENTER UNTUK CARI
                             </button>
                         </form>
-                        <br></br>
+                        <p></p>
                         <button
                             type="button"
                             className="btn-square btn-hover-shine btn btn-primary"
                             onClick={this.getData}
-                        >
+                        >   &nbsp;
                             <a className="pe-7s-note2"></a> TAMPILKAN PASIEN
-                            HARI INI
+                            HARI INI &nbsp; &nbsp;
                         </button>
                         <hr />
                         <p></p>
@@ -221,17 +222,17 @@ class Track extends Component {
                             <table className="mb-0 table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No Rekam Medis</th>
+                                        <th>Rekam Medis</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Awalan</th>
                                         <th>Nama Pasien</th>
-
-                                        <th>Jenis Kelamin</th>
+                                        <th>JK</th>
+                                        <th>Tujuan Poli</th>
                                         {/* <th>Tempat Lahir</th> */}
                                         <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
+                                        {/* <th>Alamat</th> */}
                                         <th>Peminjam</th>
-                                        <th>Aksi</th>
+                                        <th>Cetak Tracer</th>
                                     </tr>
                                 </thead>
                                 <tbody>{this.renderCari()}</tbody>

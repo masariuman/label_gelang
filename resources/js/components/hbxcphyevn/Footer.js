@@ -14,7 +14,6 @@ class Footer extends Component {
                                         className="nav-link"
                                     >
                                         Rumah Sakit Universitas Tanjungpura
-                                        Pontianak
                                     </a>
                                 </li>
                                 <li className="nav-item">
