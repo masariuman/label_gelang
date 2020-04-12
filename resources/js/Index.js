@@ -13,7 +13,7 @@ if (document.getElementById("root")) {
     ReactDOM.render(
         <BrowserRouter>
             <Header />
-            <Setting />
+            {/* <Setting /> */}
             <div className="app-main">
                 <Sidebar />
                 <div className="app-main__outer">
