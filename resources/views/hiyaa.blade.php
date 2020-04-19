@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>RS UNTAN LABEL & GELANG</title>
+        <title>RS UNTAN LABEL, GELANG & TRACER</title>
         @include('hiyaa/meta')
         @include('hiyaa/script')
         @include('hiyaa/css')

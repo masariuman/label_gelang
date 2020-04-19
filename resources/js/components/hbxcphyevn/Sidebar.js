@@ -61,7 +61,7 @@ class Sidebar extends Component {
                 <div className="scrollbar-sidebar">
                     <div className="app-sidebar__inner">
                         <ul className="vertical-nav-menu">
-                            <li className="app-sidebar__heading"><center>Aplikasi Label, Gelang & Tracer</center><center>Rumah Sakit</center> <center>Universitas Tanjungpura</center> </li>
+                            <li className="app-sidebar__heading"><center>Aplikasi</center> <center>Cetak Label, Gelang & Tracer</center><center>Rumah Sakit</center> <center>Universitas Tanjungpura</center> </li>
                         </ul>
                     </div>
                 </div>

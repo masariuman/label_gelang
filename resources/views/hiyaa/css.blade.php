@@ -5,8 +5,23 @@
     .widthawalan{
         width: 90px;
     }
-    .widthaksi{
-        width: 135px;
+    .widthcetak{
+        width: 90px;
+    }
+    .widthpeminjam{
+        width: 165px;
+    }
+    .widthtglmasuk{
+        width: 165px;
+    }
+    .widthlahir{
+        width: 70px;
+    }
+    .widthnorm{
+        width: 70px;
+    }
+    .widthjk{
+        width: 10px;
     }
     .width50px{
         width: 50px;

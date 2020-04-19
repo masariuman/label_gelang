@@ -80,7 +80,7 @@ class Index extends Component {
                 <div key="1">
                     <a
                         href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/label`}
-                        className="btn btn-success btn-xs"
+                        className="btn btn-focus btn-xs"
                         target="_blank"
                     >
                         <i className="fa fa-print"></i> Cetak Label
@@ -96,7 +96,7 @@ class Index extends Component {
                     &nbsp;
                     <a
                         href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/gelang_anak`}
-                        className="btn btn-warning btn-xs"
+                        className="btn btn-danger btn-xs"
                         target="_blank"
                     >
                         <i className="fa fa-print"></i> Cetak Gelang Anak
@@ -112,24 +112,25 @@ class Index extends Component {
                     &nbsp;
                     <br></br>
                     <br></br>
+                    <div className="table-responsive">
                     <table className="mb-0 table table-bordered">
                         <thead>
                             <tr>
-                                <th>No Rekam Medis</th>
+                                <th>Rekam Medis</th>
                                 <th>Tanggal Masuk</th>
                                 <th>Awalan</th>
                                 <th>Nama Pasien</th>
-                                <th>Jenis Kelamin</th>
+                                <th>JK</th>
                                 {/* <th>Tempat Lahir</th> */}
                                 <th>Tanggal Lahir</th>
-                                <th>Alamat</th>
+                                {/* <th>Alamat</th> */}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{data.NORMTITIK}</td>
-                                <td><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
-                                <td><select name="AWALAN" id="exampleSelect" className="form-control" onChange={this.awalanChange}>
+                                <td className="widthnorm">{data.NORMTITIK}</td>
+                                <td className="widthtglmasuk"><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control widthtglmasuk" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
+                                <td className="widthawalan"><select name="AWALAN" id="exampleSelect" className="form-control widthawalan" onChange={this.awalanChange}>
                                     <option value="TN.">TN.</option>
                                     <option value="NY.">NY.</option> 
                                     <option value="NN.">NN.</option>
@@ -138,13 +139,14 @@ class Index extends Component {
                                     <option value="BY.NY">BY.NY</option>
                                     </select></td>
                                 <td>{data.NAMA}</td>
-                                <td>{data.JENIS_KELAMIN === 1 ? "Laki-Laki" : "Perempuan"}</td>
+                                <td className="widthjk">{data.JENIS_KELAMIN === 1 ? "L" : "P"}</td>
                                 {/* <td>{data.TEMPAT_LAHIR}</td> */}
-                                <td>{data.TANGGAL_LAHIR}</td>
-                                <td>{data.ALAMAT}</td>
+                                <td className="widthlahir">{data.TANGGAL_LAHIR}</td>
+                                {/* <td>{data.ALAMAT}</td> */}
                             </tr>
                         </tbody>
                     </table>
+                  </div>
                 </div>
             ));
         }
