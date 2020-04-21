@@ -10,7 +10,7 @@ class Track extends Component {
             url: "/tracer/data",
             awalan: "TN.",
             tanggal_masuk: "",
-            peminjam: "%20",
+            peminjam: "%10"
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,26 +38,26 @@ class Track extends Component {
 
     tanggalmasukChange(e) {
         this.setState({
-            tanggal_masuk: e.target.value,
+            tanggal_masuk: e.target.value
         });
     }
 
     awalanChange(e) {
         this.setState({
-            awalan: e.target.value,
+            awalan: e.target.value
         });
     }
 
     handleChange(e) {
         this.setState({
-            cari: e.target.value,
+            cari: e.target.value
         });
         // console.log(e.target.value);
     }
 
     peminjamChange(e) {
         this.setState({
-            peminjam: e.target.value,
+            peminjam: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -66,27 +66,27 @@ class Track extends Component {
         e.preventDefault();
         axios
             .post("/tracer/data", {
-                cari: this.state.cari,
+                cari: this.state.cari
             })
-            .then((response) => {
+            .then(response => {
                 this.setState({
                     data: [response.data.cari],
                     cari: "",
                     tanggal_masuk: this.getTodayDate(),
-                    peminjam: "%20",
+                    peminjam: "%10"
                 });
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error.message);
             });
     }
 
     getData() {
-        axios.get("/tracer/data").then((response) => {
+        axios.get("/tracer/data").then(response => {
             this.setState({
                 data: response.data.cari.pasien,
                 tanggal_masuk: this.getTodayDate(),
-                peminjam: "%20",
+                peminjam: "%10"
             });
             // console.log(response.data.cari);
         });
@@ -94,11 +94,11 @@ class Track extends Component {
 
     renderCari() {
         if (!this.state.data[0]) {
-            return this.state.data.map((data) => (
+            return this.state.data.map(data => (
                 <div key="1">DATA TIDAK ADA</div>
             ));
         } else {
-            return this.state.data.map((data) => (
+            return this.state.data.map(data => (
                 <tr key={data.NORM}>
                     <td className="widthnorm">{data.NORMTITIK}</td>
                     <td className="widthtglmasuk">
@@ -212,7 +212,9 @@ class Track extends Component {
                             type="button"
                             className="btn-square btn-hover-shine btn btn-primary"
                             onClick={this.getData}
-                        >   &nbsp;
+                        >
+                            {" "}
+                            &nbsp;
                             <a className="pe-7s-note2"></a> TAMPILKAN PASIEN
                             HARI INI &nbsp; &nbsp;
                         </button>

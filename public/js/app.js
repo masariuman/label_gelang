@@ -73359,7 +73359,7 @@ function (_Component) {
       url: "/tracer/data",
       awalan: "TN.",
       tanggal_masuk: "",
-      peminjam: "%20"
+      peminjam: "%10"
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -73431,7 +73431,7 @@ function (_Component) {
           data: [response.data.cari],
           cari: "",
           tanggal_masuk: _this2.getTodayDate(),
-          peminjam: "%20"
+          peminjam: "%10"
         });
       })["catch"](function (error) {
         console.log(error.message);
@@ -73446,7 +73446,7 @@ function (_Component) {
         _this3.setState({
           data: response.data.cari.pasien,
           tanggal_masuk: _this3.getTodayDate(),
-          peminjam: "%20"
+          peminjam: "%10"
         }); // console.log(response.data.cari);
 
       });
@@ -73571,7 +73571,7 @@ function (_Component) {
         type: "button",
         className: "btn-square btn-hover-shine btn btn-primary",
         onClick: this.getData
-      }, "   \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, " ", "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "pe-7s-note2"
       }), " TAMPILKAN PASIEN HARI INI \xA0 \xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-responsive"
@@ -74368,8 +74368,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
