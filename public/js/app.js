@@ -73116,7 +73116,7 @@ function (_Component) {
     _this.state = {
       data: [],
       cari: "",
-      awalan: "TN.",
+      awalan: "%10",
       tanggal_masuk: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
@@ -73179,6 +73179,7 @@ function (_Component) {
         _this2.setState({
           data: [response.data.cari],
           cari: "",
+          awalan: "%10",
           tanggal_masuk: _this2.getTodayDate()
         });
 
@@ -73244,6 +73245,10 @@ function (_Component) {
             className: "form-control widthawalan",
             onChange: _this3.awalanChange
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "%10"
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "SDR."
+          }, "SDR."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             value: "TN."
           }, "TN."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             value: "NY."
@@ -73585,7 +73590,7 @@ function (_Component) {
       pagination: [],
       cari: "",
       url: "/tracer/data",
-      awalan: "TN.",
+      awalan: "%10",
       tanggal_masuk: "",
       peminjam: "%10"
     };
@@ -73659,6 +73664,7 @@ function (_Component) {
           data: [response.data.cari],
           cari: "",
           tanggal_masuk: _this2.getTodayDate(),
+          awalan: "%10",
           peminjam: "%10"
         });
       })["catch"](function (error) {
@@ -73674,6 +73680,7 @@ function (_Component) {
         _this3.setState({
           data: response.data.cari.pasien,
           tanggal_masuk: _this3.getTodayDate(),
+          awalan: "%10",
           peminjam: "%10"
         }); // console.log(response.data.cari);
 
@@ -73714,6 +73721,10 @@ function (_Component) {
             className: "form-control widthawalan",
             onChange: _this4.awalanChange
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "%10"
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "SDR."
+          }, "SDR."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             value: "TN."
           }, "TN."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
             value: "NY."
@@ -74598,8 +74609,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/masariuman/Sites/laravel/label_gelang/label_gelang/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\label_gelang\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
