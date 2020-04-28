@@ -72970,6 +72970,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_hbxcphyevn_Footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/hbxcphyevn/Footer */ "./resources/js/components/hbxcphyevn/Footer.js");
 /* harmony import */ var _components_Index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.js");
 /* harmony import */ var _components_Track__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Track */ "./resources/js/components/Track.js");
+/* harmony import */ var _components_Pasien__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Pasien */ "./resources/js/components/Pasien.js");
+
 
 
 
@@ -72991,6 +72993,10 @@ if (document.getElementById("root")) {
     exact: true,
     path: "/tracer",
     component: _components_Track__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/today_pasien",
+    component: _components_Pasien__WEBPACK_IMPORTED_MODULE_9__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Index__WEBPACK_IMPORTED_MODULE_7__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_hbxcphyevn_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), document.getElementById("root"));
 }
 
@@ -73307,6 +73313,287 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
+
+/***/ }),
+
+/***/ "./resources/js/components/Pasien.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Pasien.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Pasien =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Pasien, _Component);
+
+  function Pasien(props) {
+    var _this;
+
+    _classCallCheck(this, Pasien);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Pasien).call(this, props));
+    _this.state = {
+      data: [],
+      pagination: [],
+      cari: "",
+      url: "/tracer/data",
+      awalan: "TN.",
+      tanggal_masuk: "",
+      peminjam: "%10"
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.renderCari = _this.renderCari.bind(_assertThisInitialized(_this));
+    _this.getData = _this.getData.bind(_assertThisInitialized(_this));
+    _this.awalanChange = _this.awalanChange.bind(_assertThisInitialized(_this));
+    _this.tanggalmasukChange = _this.tanggalmasukChange.bind(_assertThisInitialized(_this));
+    _this.peminjamChange = _this.peminjamChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Pasien, [{
+    key: "getTodayDate",
+    value: function getTodayDate() {
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
+
+      var terbalik = yyyy + "-" + mm + "-" + dd;
+      return terbalik;
+    }
+  }, {
+    key: "tanggalmasukChange",
+    value: function tanggalmasukChange(e) {
+      this.setState({
+        tanggal_masuk: e.target.value
+      });
+    }
+  }, {
+    key: "awalanChange",
+    value: function awalanChange(e) {
+      this.setState({
+        awalan: e.target.value
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        cari: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "peminjamChange",
+    value: function peminjamChange(e) {
+      this.setState({
+        peminjam: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      axios.post("/tracer/data", {
+        cari: this.state.cari
+      }).then(function (response) {
+        _this2.setState({
+          data: [response.data.cari],
+          cari: "",
+          tanggal_masuk: _this2.getTodayDate(),
+          peminjam: "%10"
+        });
+      })["catch"](function (error) {
+        console.log(error.message);
+      });
+    }
+  }, {
+    key: "getData",
+    value: function getData() {
+      var _this3 = this;
+
+      axios.get("/tracer/data").then(function (response) {
+        _this3.setState({
+          data: response.data.cari.pasien,
+          tanggal_masuk: _this3.getTodayDate(),
+          peminjam: "%10"
+        }); // console.log(response.data.cari);
+
+      });
+    }
+  }, {
+    key: "renderCari",
+    value: function renderCari() {
+      var _this4 = this;
+
+      if (!this.state.data[0]) {
+        return this.state.data.map(function (data) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: "1"
+          }, "DATA TIDAK ADA");
+        });
+      } else {
+        return this.state.data.map(function (data) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+            key: data.NORM
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthnorm"
+          }, data.NORMTITIK), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthtglmasuk"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            name: "TANGGAL_MASUK",
+            placeholder: "Tanggal Masuk",
+            type: "date",
+            className: "form-control widthtglmasuk",
+            required: true,
+            onChange: _this4.tanggalmasukChange,
+            value: _this4.state.tanggal_masuk
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthawalan"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+            name: "AWALAN",
+            id: "exampleSelect",
+            className: "form-control widthawalan",
+            onChange: _this4.awalanChange
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "TN."
+          }, "TN."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "NY."
+          }, "NY."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "NN."
+          }, "NN."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "AN."
+          }, "AN."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "BY."
+          }, "BY."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: "BY.NY"
+          }, "BY.NY"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthjk"
+          }, data.JENIS_KELAMIN === 1 ? "L" : "L"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.poli), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthlahir"
+          }, data.TANGGAL_LAHIR), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthpeminjam"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            name: "PEMINJAM",
+            placeholder: "Peminjam",
+            type: "text",
+            className: "form-control widthpeminjam",
+            required: true,
+            onChange: _this4.peminjamChange,
+            value: _this4.state.peminjamChange
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "widthcetak"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            onSubmit: _this4.handleSubmit // href={`/tracer/${data.NORM}/print`}
+            ,
+            href: "/".concat(data.NORM, "/").concat(_this4.state.awalan, "/").concat(_this4.state.tanggal_masuk, "/").concat(_this4.state.peminjam, "/tracer"),
+            className: "btn btn-alternate btn-xs",
+            target: "_blank"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fa fa-print"
+          }), " Print")));
+        });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getData();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "app-page-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-heading"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "pe-7s-search icon-gradient bg-happy-green"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "PASIEN HARI INI", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "page-title-subheading"
+      }, "Halaman ini berfungsi untuk melihat Pasien Hari Ini."))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-card mb-3 card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChange,
+        value: this.state.cari,
+        className: "form-control-lg form-control",
+        placeholder: "Cari Nomor Rekam Medis",
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn-square btn-hover-shine btn btn-success"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "pe-7s-search"
+      }), " CARI / KLIK ENTER UNTUK CARI")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn-square btn-hover-shine btn btn-primary",
+        onClick: this.getData
+      }, " ", "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "pe-7s-note2"
+      }), " TAMPILKAN PASIEN HARI INI \xA0 \xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-responsive"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "mb-0 table table-bordered"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Masuk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Awalan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "JK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tujuan Poli"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Peminjam"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cetak Tracer"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn-wide mb-2 mr-2 btn-icon btn-icon-right btn-shadow btn-pill btn btn-outline-success",
+        onClick: this.loadMore
+      }, "More") : ""))));
+    }
+  }]);
+
+  return Pasien;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Pasien);
 
 /***/ }),
 
@@ -73802,7 +74089,9 @@ function (_Component) {
         className: "widget-heading"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/tracer"
-      }, "TRACER")))))))));
+      }, "TRACER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/today_pasien"
+      }, "Data Pasien Hari Ini")))))))));
     }
   }]);
 
