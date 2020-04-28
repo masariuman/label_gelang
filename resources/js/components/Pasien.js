@@ -7,7 +7,7 @@ class Pasien extends Component {
             data: [],
             pagination: [],
             cari: "",
-            url: "/tracer/data",
+            url: "/pasien/data",
             awalan: "TN.",
             tanggal_masuk: "",
             peminjam: "%10"
@@ -82,81 +82,33 @@ class Pasien extends Component {
     }
 
     getData() {
-        axios.get("/tracer/data").then(response => {
+        axios.get("/pasien/data").then(response => {
             this.setState({
                 data: response.data.cari.pasien,
                 tanggal_masuk: this.getTodayDate(),
                 peminjam: "%10"
             });
-            // console.log(response.data.cari);
+            // console.log(response.data.cari.pasien);
         });
     }
 
     renderCari() {
-        if (!this.state.data[0]) {
+        if (!this.state.data) {
             return this.state.data.map(data => (
                 <div key="1">DATA TIDAK ADA</div>
             ));
         } else {
             return this.state.data.map(data => (
-                <tr key={data.NORM}>
-                    <td className="widthnorm">{data.NORMTITIK}</td>
-                    <td className="widthtglmasuk">
-                        <input
-                            name="TANGGAL_MASUK"
-                            placeholder="Tanggal Masuk"
-                            type="date"
-                            className="form-control widthtglmasuk"
-                            required
-                            onChange={this.tanggalmasukChange}
-                            value={this.state.tanggal_masuk}
-                        />
-                    </td>
-                    <td className="widthawalan">
-                        <select
-                            name="AWALAN"
-                            id="exampleSelect"
-                            className="form-control widthawalan"
-                            onChange={this.awalanChange}
-                        >
-                            <option value="TN.">TN.</option>
-                            <option value="NY.">NY.</option>
-                            <option value="NN.">NN.</option>
-                            <option value="AN.">AN.</option>
-                            <option value="BY.">BY.</option>
-                            <option value="BY.NY">BY.NY</option>
-                        </select>
-                    </td>
-                    <td>{data.NAMA}</td>
+                <tr key={data[0].nomor}>
+                    <td>{data[0].nomor}</td>
+                    <td className="widthnorm">{data[0].NORMTITIK}</td>
+                    <td>{data[0].NAMA}</td>
                     <td className="widthjk">
-                        {data.JENIS_KELAMIN === 1 ? "L" : "L"}
+                        {data[0].JENIS_KELAMIN === 1
+                            ? "Laki-Laki"
+                            : "Perempuan"}
                     </td>
-                    <td>{data.poli}</td>
-                    {/* <td>{data.TEMPAT_LAHIR}</td> */}
-                    <td className="widthlahir">{data.TANGGAL_LAHIR}</td>
-                    {/* <td>{data.ALAMAT}</td> */}
-                    <td className="widthpeminjam">
-                        <input
-                            name="PEMINJAM"
-                            placeholder="Peminjam"
-                            type="text"
-                            className="form-control widthpeminjam"
-                            required
-                            onChange={this.peminjamChange}
-                            value={this.state.peminjamChange}
-                        />
-                    </td>
-                    <td className="widthcetak">
-                        <a
-                            onSubmit={this.handleSubmit}
-                            // href={`/tracer/${data.NORM}/print`}
-                            href={`/${data.NORM}/${this.state.awalan}/${this.state.tanggal_masuk}/${this.state.peminjam}/tracer`}
-                            className="btn btn-alternate btn-xs"
-                            target="_blank"
-                        >
-                            <i className="fa fa-print"></i> Print
-                        </a>
-                    </td>
+                    <td className="widthlahir">{data[0].TANGGAL_LAHIR}</td>
                 </tr>
             ));
         }
@@ -169,6 +121,7 @@ class Pasien extends Component {
     componentDidUpdate() {}
 
     render() {
+        console.log(this.state.data);
         return (
             <div>
                 <div className="app-page-title">
@@ -191,50 +144,29 @@ class Pasien extends Component {
                     <div className="card-body">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <input
-                                    onChange={this.handleChange}
-                                    value={this.state.cari}
-                                    className="form-control-lg form-control"
-                                    placeholder="Cari Nomor Rekam Medis"
-                                    required
-                                />
+                                <div>
+                                    <span className="parents-line">
+                                        Tujuan :
+                                    </span>
+                                    <select className="form-control parents">
+                                        <option value="UGD">UGD</option>
+                                        <option value="UGD">Poli Mata</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button
-                                type="submit"
-                                className="btn-square btn-hover-shine btn btn-success"
-                            >
-                                <a className="pe-7s-search"></a> CARI / KLIK
-                                ENTER UNTUK CARI
-                            </button>
                         </form>
                         <p></p>
-                        <button
-                            type="button"
-                            className="btn-square btn-hover-shine btn btn-primary"
-                            onClick={this.getData}
-                        >
-                            {" "}
-                            &nbsp;
-                            <a className="pe-7s-note2"></a> TAMPILKAN PASIEN
-                            HARI INI &nbsp; &nbsp;
-                        </button>
                         <hr />
                         <p></p>
                         <div className="table-responsive">
                             <table className="mb-0 table table-bordered">
                                 <thead>
                                     <tr>
+                                        <th>Nomor</th>
                                         <th>Rekam Medis</th>
-                                        <th>Tanggal Masuk</th>
-                                        <th>Awalan</th>
                                         <th>Nama Pasien</th>
                                         <th>JK</th>
-                                        <th>Tujuan Poli</th>
-                                        {/* <th>Tempat Lahir</th> */}
                                         <th>Tanggal Lahir</th>
-                                        {/* <th>Alamat</th> */}
-                                        <th>Peminjam</th>
-                                        <th>Cetak Tracer</th>
                                     </tr>
                                 </thead>
                                 <tbody>{this.renderCari()}</tbody>
