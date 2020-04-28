@@ -149,7 +149,10 @@ class DataController extends Controller
         foreach ($dokter as $docter) {
             $today = $pendaftarans = Pendaftaran::whereDate('TANGGAL', Carbon::today())->get();
             foreach ($today as $todays) {
-                $tujuan_dokter[$docter['ID']] = Tujuan::where('DOKTER',$docter['ID'])->where('NOPEN',$todays['NOMOR'])->first();
+                $cek = Tujuan::where('DOKTER',$docter['ID'])->where('NOPEN',$todays['NOMOR'])->first();
+                if ($cek) {
+                    $tujuan_dokter[$docter['ID']][] = $cek;
+                }
             }
             // $tujuan_dokter[$docter['ID']] = Tujuan::where('DOKTER',$docter['ID'])->get();
             $namaa = Pegawai::where('NIP',$docter['NIP'])->first();
