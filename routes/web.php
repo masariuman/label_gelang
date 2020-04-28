@@ -15,6 +15,9 @@ Route::get('/{id}/{awalan}/{tgl_masuk}/testtujuan', 'PrintController@testtujuan'
 Route::get('/tracer/data', 'DataController@tracerData');
 Route::post('/tracer/data', 'DataController@cariTracerData');
 
+Route::get('/pasien/data', 'DataController@pasienData');
+// Route::get('/pasien/data', 'DataController@cariData');
+
 Route::get('/test', 'DataController@test');
 
 // route::get('/templatelabel','PrintController@templateLabel');

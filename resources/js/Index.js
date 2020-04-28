@@ -7,6 +7,7 @@ import Sidebar from "./components/hbxcphyevn/Sidebar";
 import Footer from "./components/hbxcphyevn/Footer";
 import Index from "./components/Index";
 import Track from "./components/Track";
+import Pasien from "./components/Pasien";
 // import Tracer from ".components/Track";
 
 if (document.getElementById("root")) {
@@ -20,6 +21,11 @@ if (document.getElementById("root")) {
                     <div className="app-main__inner">
                         <Switch>
                             <Route exact path="/tracer" component={Track} />
+                            <Route
+                                exact
+                                path="/today_pasien"
+                                component={Pasien}
+                            />
                             <Index />
                         </Switch>
                     </div>

@@ -74,6 +74,10 @@ class Header extends Component {
                                         <div className="widget-subheading"></div>{" "}
                                         <div className="widget-heading">
                                             <Link to={`/tracer`}>TRACER</Link>
+                                            <br />
+                                            <Link to={`/today_pasien`}>
+                                                Data Pasien Hari Ini
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
