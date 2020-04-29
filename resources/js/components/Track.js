@@ -8,7 +8,7 @@ class Track extends Component {
             pagination: [],
             cari: "",
             url: "/tracer/data",
-            awalan: "TN.",
+            awalan: "%10",
             tanggal_masuk: "",
             peminjam: "%10"
         };
@@ -72,6 +72,7 @@ class Track extends Component {
                 this.setState({
                     data: [response.data.cari],
                     cari: "",
+                    awalan: "%10",
                     tanggal_masuk: this.getTodayDate(),
                     peminjam: "%10"
                 });
@@ -86,6 +87,7 @@ class Track extends Component {
             this.setState({
                 data: response.data.cari.pasien,
                 tanggal_masuk: this.getTodayDate(),
+                awalan: "%10",
                 peminjam: "%10"
             });
             // console.log(response.data.cari);
@@ -119,6 +121,8 @@ class Track extends Component {
                             className="form-control widthawalan"
                             onChange={this.awalanChange}
                         >
+                            <option value="%10"></option>
+                            <option value="SDR.">SDR.</option>
                             <option value="TN.">TN.</option>
                             <option value="NY.">NY.</option>
                             <option value="NN.">NN.</option>

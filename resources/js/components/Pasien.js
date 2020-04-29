@@ -6,7 +6,7 @@ class Pasien extends Component {
         this.state = {
             data: [],
             url: "/pasien/data",
-            tujuan: "101010106"
+            tujuan: "101010101"
         };
         this.handleChange = this.handleChange.bind(this);
         this.renderCari = this.renderCari.bind(this);
@@ -50,7 +50,7 @@ class Pasien extends Component {
                 <table className="mb-0 table table-bordered">
                     <thead>
                         <tr>
-                            <th>Nomor</th>
+                            <th>No Urut</th>
                             <th>Rekam Medis</th>
                             <th>Nama Pasien</th>
                             <th>JK</th>
@@ -60,15 +60,15 @@ class Pasien extends Component {
                     <tbody>
                         {this.state.data.map(data => (
                             <tr key={data[0].nomor}>
-                                <td>{data[0].nomor}</td>
+                                <td className="widthnodaftar">{data[0].nomor}</td>
                                 <td className="widthnorm">
                                     {data[0].NORMTITIK}
                                 </td>
                                 <td>{data[0].NAMA}</td>
                                 <td className="widthjk">
                                     {data[0].JENIS_KELAMIN === 1
-                                        ? "Laki-Laki"
-                                        : "Perempuan"}
+                                        ? "L"
+                                        : "P"}
                                 </td>
                                 <td className="widthlahir">
                                     {data[0].TANGGAL_LAHIR}
@@ -84,10 +84,10 @@ class Pasien extends Component {
                     <table className="mb-0 table table-bordered">
                         <thead>
                             <tr>
-                                <th colSpan="5">{post[0].nama_dokter}</th>
+                            <th colSpan="5"><h5><b>{post[0].nama_dokter}</b></h5></th>
                             </tr>
                             <tr>
-                                <th>Nomor</th>
+                                <th>No Urut</th>
                                 <th>Rekam Medis</th>
                                 <th>Nama Pasien</th>
                                 <th>JK</th>
@@ -97,17 +97,17 @@ class Pasien extends Component {
                         <tbody>
                             {post.map((detail, j) => (
                                 <tr key={`Key${j}`}>
-                                    <td>{detail.nomor}</td>
-                                    <td>{detail.NORM}</td>
+                                    <td className="widthnodaftar">{detail.nomor}</td>
+                                    <td className="widthnorm">{detail.NORM}</td>
                                     <td>{detail.NAMA}</td>
-                                    <td>
+                                    <td className="widthjk">
                                         {detail.JENIS_KELAMIN === 1
-                                            ? "Laki-Laki"
+                                            ? "L"
                                             : detail.JENIS_KELAMIN === 2
-                                            ? "Perempuan"
+                                            ? "P"
                                             : ""}
                                     </td>
-                                    <td>{detail.TANGGAL_LAHIR}</td>
+                                    <td className="widthlahir">{detail.TANGGAL_LAHIR}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -149,18 +149,46 @@ class Pasien extends Component {
                             <div className="form-group">
                                 <div>
                                     <span className="parents-line">
-                                        Tujuan :
+                                        <h5><b>Tujuan :</b></h5>
                                     </span>
+                                    <p></p>
                                     <select
                                         className="form-control parents"
                                         onChange={this.handleChange}
                                         value={this.state.tujuan}
                                     >
+                                        <option value="101010101">
+                                            Poli Anak
+                                        </option>
                                         <option value="101010102">
                                             Poli Bedah
                                         </option>
+                                        <option value="101010103">
+                                            Poli Gigi Anak
+                                        </option>
+                                        <option value="101010104">
+                                            Poli Gigi Umum
+                                        </option>
+                                        <option value="101010105">
+                                            Poli Mata
+                                        </option>
                                         <option value="101010106">
-                                            Poli Syaraf
+                                            Poli Neurologi/Syaraf
+                                        </option>
+                                        <option value="101010107">
+                                            Poli Obgyn/Kandungan
+                                        </option>
+                                        <option value="101010108">
+                                            Poli Penyakit Dalam
+                                        </option>
+                                        <option value="101010109">
+                                            Poli THT
+                                        </option>
+                                        <option value="101010110">
+                                            Poli Bedah Syaraf
+                                        </option>
+                                        <option value="101010111">
+                                            Poli Forensik
                                         </option>
                                         <option value="101020101">UGD</option>
                                     </select>

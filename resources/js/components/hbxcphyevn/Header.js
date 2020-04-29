@@ -76,7 +76,7 @@ class Header extends Component {
                                             <Link to={`/tracer`}>TRACER</Link>
                                             <br />
                                             <Link to={`/today_pasien`}>
-                                                Data Pasien Hari Ini
+                                                DATA PASIEN HARI INI
                                             </Link>
                                         </div>
                                     </div>
