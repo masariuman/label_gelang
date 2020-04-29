@@ -2,6 +2,9 @@
 <link href="https://fonts.googleapis.com/css?family=Yatra+One&display=swap" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
 <style>
+    .margintop30 {
+        margin-top: 50px;
+    }
     .widthawalan{
         width: 90px;
     }

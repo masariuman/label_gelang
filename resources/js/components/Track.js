@@ -133,7 +133,7 @@ class Track extends Component {
                     </td>
                     <td>{data.NAMA}</td>
                     <td className="widthjk">
-                        {data.JENIS_KELAMIN === 1 ? "L" : "L"}
+                        {data.JENIS_KELAMIN === 1 ? "L" : "P"}
                     </td>
                     <td>{data.poli}</td>
                     {/* <td>{data.TEMPAT_LAHIR}</td> */}

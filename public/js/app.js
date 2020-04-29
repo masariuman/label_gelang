@@ -73365,99 +73365,48 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Pasien).call(this, props));
     _this.state = {
       data: [],
-      pagination: [],
-      cari: "",
       url: "/pasien/data",
-      awalan: "TN.",
-      tanggal_masuk: "",
-      peminjam: "%10"
+      tujuan: "101010106"
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.renderCari = _this.renderCari.bind(_assertThisInitialized(_this));
     _this.getData = _this.getData.bind(_assertThisInitialized(_this));
-    _this.awalanChange = _this.awalanChange.bind(_assertThisInitialized(_this));
-    _this.tanggalmasukChange = _this.tanggalmasukChange.bind(_assertThisInitialized(_this));
-    _this.peminjamChange = _this.peminjamChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Pasien, [{
-    key: "getTodayDate",
-    value: function getTodayDate() {
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth() + 1;
-      var yyyy = today.getFullYear();
-
-      if (dd < 10) {
-        dd = "0" + dd;
-      }
-
-      if (mm < 10) {
-        mm = "0" + mm;
-      }
-
-      var terbalik = yyyy + "-" + mm + "-" + dd;
-      return terbalik;
-    }
-  }, {
-    key: "tanggalmasukChange",
-    value: function tanggalmasukChange(e) {
-      this.setState({
-        tanggal_masuk: e.target.value
-      });
-    }
-  }, {
-    key: "awalanChange",
-    value: function awalanChange(e) {
-      this.setState({
-        awalan: e.target.value
-      });
-    }
-  }, {
     key: "handleChange",
     value: function handleChange(e) {
-      this.setState({
-        cari: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "peminjamChange",
-    value: function peminjamChange(e) {
-      this.setState({
-        peminjam: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
       var _this2 = this;
 
-      e.preventDefault();
-      axios.post("/tracer/data", {
-        cari: this.state.cari
-      }).then(function (response) {
-        _this2.setState({
-          data: [response.data.cari],
-          cari: "",
-          tanggal_masuk: _this2.getTodayDate(),
-          peminjam: "%10"
+      this.setState({
+        tujuan: e.target.value
+      }); // console.log(e.target.value);
+
+      if (e.target.value == "101020101") {
+        axios.get("/pasien/data/ugd/".concat(e.target.value)).then(function (response) {
+          _this2.setState({
+            data: response.data.cari
+          }); // console.log(response.data.cari.pasien);
+
         });
-      })["catch"](function (error) {
-        console.log(error.message);
-      });
+      } else {
+        axios.get("/pasien/data/".concat(e.target.value)).then(function (response) {
+          _this2.setState({
+            data: response.data.cari
+          }); // console.log(response.data.cari.pasien);
+
+        });
+      }
     }
   }, {
     key: "getData",
     value: function getData() {
       var _this3 = this;
 
-      axios.get("/pasien/data").then(function (response) {
+      axios.get("/pasien/data/".concat(this.state.tujuan)).then(function (response) {
         _this3.setState({
-          data: response.data.cari.pasien,
-          tanggal_masuk: _this3.getTodayDate(),
-          peminjam: "%10"
+          data: response.data.cari
         }); // console.log(response.data.cari.pasien);
 
       });
@@ -73465,14 +73414,10 @@ function (_Component) {
   }, {
     key: "renderCari",
     value: function renderCari() {
-      if (!this.state.data) {
-        return this.state.data.map(function (data) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            key: "1"
-          }, "DATA TIDAK ADA");
-        });
-      } else {
-        return this.state.data.map(function (data) {
+      if (this.state.tujuan === "101020101") {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+          className: "mb-0 table table-bordered"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nomor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "JK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.data.map(function (data) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
             key: data[0].nomor
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data[0].nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -73482,6 +73427,21 @@ function (_Component) {
           }, data[0].JENIS_KELAMIN === 1 ? "Laki-Laki" : "Perempuan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
             className: "widthlahir"
           }, data[0].TANGGAL_LAHIR));
+        })));
+      } else {
+        return this.state.data.map(function (post, i) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: "Key".concat(i),
+            className: "margintop30"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+            className: "mb-0 table table-bordered"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+            colSpan: "5"
+          }, post[0].nama_dokter)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nomor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "JK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, post.map(function (detail, j) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+              key: "Key".concat(j)
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, detail.nomor), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, detail.NORM), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, detail.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, detail.JENIS_KELAMIN === 1 ? "Laki-Laki" : detail.JENIS_KELAMIN === 2 ? "Perempuan" : ""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, detail.TANGGAL_LAHIR));
+          }))));
         });
       }
     }
@@ -73496,7 +73456,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.data);
+      // console.log(this.state.data);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "app-page-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -73520,19 +73480,18 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "parents-line"
       }, "Tujuan :"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "form-control parents"
+        className: "form-control parents",
+        onChange: this.handleChange,
+        value: this.state.tujuan
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "UGD"
-      }, "UGD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "UGD"
-      }, "Poli Mata"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        value: "101010102"
+      }, "Poli Bedah"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "101010106"
+      }, "Poli Syaraf"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "101020101"
+      }, "UGD"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-responsive"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "mb-0 table table-bordered"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nomor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Rekam Medis"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Pasien"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "JK"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tanggal Lahir"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.renderCari())), this.state.pagination.next_page_url ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn-wide mb-2 mr-2 btn-icon btn-icon-right btn-shadow btn-pill btn btn-outline-success",
-        onClick: this.loadMore
-      }, "More") : ""))));
+      }, this.renderCari()))));
     }
   }]);
 
@@ -73738,7 +73697,7 @@ function (_Component) {
             value: "BY.NY"
           }, "BY.NY"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.NAMA), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
             className: "widthjk"
-          }, data.JENIS_KELAMIN === 1 ? "L" : "L"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.poli), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+          }, data.JENIS_KELAMIN === 1 ? "L" : "P"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.poli), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
             className: "widthlahir"
           }, data.TANGGAL_LAHIR), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
             className: "widthpeminjam"
