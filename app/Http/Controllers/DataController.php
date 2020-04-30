@@ -144,7 +144,10 @@ class DataController extends Controller
         $tujuan = Tujuan::where('RUANGAN',$id)->orderBy("NOPEN", "DESC")->get();
         $dokter_ruangan = DokterRuangan::where('RUANGAN',$id)->get();
         foreach ($dokter_ruangan as $dokter_ruangans) {
-            $dokter[] = Dokter::where('ID',$dokter_ruangans['DOKTER'])->first();
+            $cek = Dokter::where('ID',$dokter_ruangans['DOKTER'])->first();
+            if ($cek['STATUS'] === 1) {
+                $dokter[] = Dokter::where('ID',$dokter_ruangans['DOKTER'])->first(); 
+            }
         }
         $dokterCount = 0;
         foreach ($dokter as $docter) {

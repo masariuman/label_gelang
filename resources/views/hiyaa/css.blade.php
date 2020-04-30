@@ -2,6 +2,27 @@
 <link href="https://fonts.googleapis.com/css?family=Yatra+One&display=swap" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
 <style>
+    .sidebar{
+        display: block;
+        line-height: 2.4rem;
+        height: 2.4rem;
+        padding: 0 1.5rem 0 45px;
+        position: relative;
+        border-radius: .25rem;
+        color: #343a40;
+        white-space: nowrap;
+        transition: all .2s;
+        margin: .1rem 0;
+        outline: none !important;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: pointer;
+        list-style: none;
+        font-size: .88rem;
+        font-weight: 400;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+    }
     .margintop30 {
         margin-top: 50px;
     }

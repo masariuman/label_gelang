@@ -67,7 +67,7 @@ class Header extends Component {
                                             </a>
                                         </div>
                                     </div>
-                                    <div className="widget-content-left  ml-3 header-user-info">
+                                    {/* <div className="widget-content-left  ml-3 header-user-info">
                                         <div className="widget-heading">
                                             <Link to={`/`}>LABEL | GELANG</Link>
                                         </div>
@@ -79,7 +79,7 @@ class Header extends Component {
                                                 DATA PASIEN HARI INI
                                             </Link>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

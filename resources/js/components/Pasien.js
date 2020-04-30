@@ -84,7 +84,7 @@ class Pasien extends Component {
                     <table className="mb-0 table table-bordered">
                         <thead>
                             <tr>
-                            <th colSpan="5"><h5><b>{post[0].nama_dokter}</b></h5></th>
+                            <th colSpan="5" className="bg-happy-green"><center><h5><b class="text-light">{post[0].nama_dokter}</b></h5></center></th>
                             </tr>
                             <tr>
                                 <th>No Urut</th>
@@ -131,7 +131,7 @@ class Pasien extends Component {
                     <div className="page-title-wrapper">
                         <div className="page-title-heading">
                             <div className="page-title-icon">
-                                <i className="pe-7s-search icon-gradient bg-happy-green"></i>
+                                <i className="pe-7s-note2 icon-gradient bg-happy-green"></i>
                             </div>
                             <div>
                                 PASIEN HARI INI
@@ -163,9 +163,9 @@ class Pasien extends Component {
                                         <option value="101010102">
                                             Poli Bedah
                                         </option>
-                                        <option value="101010103">
+                                        {/* <option value="101010103">
                                             Poli Gigi Anak
-                                        </option>
+                                        </option> */}
                                         <option value="101010104">
                                             Poli Gigi Umum
                                         </option>

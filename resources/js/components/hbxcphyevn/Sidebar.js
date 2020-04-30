@@ -62,7 +62,25 @@ class Sidebar extends Component {
                     <div className="app-sidebar__inner">
                         <ul className="vertical-nav-menu">
                             <li className="app-sidebar__heading"><center>Aplikasi</center> <center>Cetak Label, Gelang, Tracer</center><center>Dan Data Pasien Hari Ini</center><center>Rumah Sakit</center> <center>Universitas Tanjungpura</center> </li>
-                        </ul>
+                            <li>
+                            <Link to={`/`} className="{this.state.activeIndex==0 ? 'mm-active': null}" onClick={this.toggleClass.bind(this, 0)}>                                
+                                    <i className="metismenu-icon pe-7s-print"></i>
+                                    Label & Gelang                               
+                              </Link>
+                            </li>
+                            <li >
+                              <Link to={`/tracer`}  className="{this.state.activeIndex==0 ? 'mm-active': null}"  onClick={this.toggleClass.bind(this, 1)}>
+                                    <i className="metismenu-icon pe-7s-ticket"></i>
+                                    Tracer
+                              </Link>
+                            </li>
+                            <li>
+                            <Link to={`/today_pasien`} className="{this.state.activeIndex==0 ? 'mm-active': null}"  onClick={this.toggleClass.bind(this, 1)}>
+                                    <i className="metismenu-icon pe-7s-note2"></i>
+                                    Data Pasien
+                            </Link>
+                            </li> 
+                        </ul>                           
                     </div>
                 </div>
             </div>
