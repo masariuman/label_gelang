@@ -50,6 +50,19 @@
     .widthjk{
         width: 10px;
     }
+    .widthnodaftarp{
+        width: 80px;
+    }
+    .widthnormp{
+        width: 110px;
+    }
+    .widthjkp{
+        width: 110px;
+    }
+    .widthlahirp{
+        width: 110px;
+    }
+    
     .width50px{
         width: 50px;
     }

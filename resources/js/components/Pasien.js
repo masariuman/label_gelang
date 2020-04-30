@@ -53,24 +53,24 @@ class Pasien extends Component {
                             <th>No Urut</th>
                             <th>Rekam Medis</th>
                             <th>Nama Pasien</th>
-                            <th>JK</th>
+                            <th>Jenis Kelamin</th>
                             <th>Tanggal Lahir</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.data.map(data => (
                             <tr key={data[0].nomor}>
-                                <td className="widthnodaftar">{data[0].nomor}</td>
-                                <td className="widthnorm">
+                                <td className="widthnodaftarp">{data[0].nomor}</td>
+                                <td className="widthnormp">
                                     {data[0].NORMTITIK}
                                 </td>
                                 <td>{data[0].NAMA}</td>
-                                <td className="widthjk">
+                                <td className="widthjkp">
                                     {data[0].JENIS_KELAMIN === 1
-                                        ? "L"
-                                        : "P"}
+                                        ? "Laki-Laki"
+                                        : "Perempuan"}
                                 </td>
-                                <td className="widthlahir">
+                                <td className="widthlahirp">
                                     {data[0].TANGGAL_LAHIR}
                                 </td>
                             </tr>
@@ -84,30 +84,30 @@ class Pasien extends Component {
                     <table className="mb-0 table table-bordered">
                         <thead>
                             <tr>
-                            <th colSpan="5" className="bg-happy-green"><center><h5><b class="text-light">{post[0].nama_dokter}</b></h5></center></th>
+                            <th colSpan="5" className="bg-happy-green"><center><h5><b className="text-light">{post[0].nama_dokter}</b></h5></center></th>
                             </tr>
                             <tr>
                                 <th>No Urut</th>
                                 <th>Rekam Medis</th>
                                 <th>Nama Pasien</th>
-                                <th>JK</th>
+                                <th>Jenis Kelamin</th>
                                 <th>Tanggal Lahir</th>
                             </tr>
                         </thead>
                         <tbody>
                             {post.map((detail, j) => (
                                 <tr key={`Key${j}`}>
-                                    <td className="widthnodaftar">{detail.nomor}</td>
-                                    <td className="widthnorm">{detail.NORM}</td>
+                                    <td className="widthnodaftarp">{detail.nomor}</td>
+                                    <td className="widthnormp">{detail.NORM}</td>
                                     <td>{detail.NAMA}</td>
-                                    <td className="widthjk">
+                                    <td className="widthjkp">
                                         {detail.JENIS_KELAMIN === 1
-                                            ? "L"
+                                            ? "Laki-Laki"
                                             : detail.JENIS_KELAMIN === 2
-                                            ? "P"
+                                            ? "Perempuan"
                                             : ""}
                                     </td>
-                                    <td className="widthlahir">{detail.TANGGAL_LAHIR}</td>
+                                    <td className="widthlahirp">{detail.TANGGAL_LAHIR}</td>
                                 </tr>
                             ))}
                         </tbody>
