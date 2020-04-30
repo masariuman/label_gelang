@@ -5,6 +5,9 @@
     .margintop30 {
         margin-top: 50px;
     }
+    .widthnodaftar{
+        width: 10px;
+    }
     .widthawalan{
         width: 90px;
     }

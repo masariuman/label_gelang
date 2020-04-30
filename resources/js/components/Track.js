@@ -72,6 +72,7 @@ class Track extends Component {
                 this.setState({
                     data: [response.data.cari],
                     cari: "",
+                    awalan: "%10",
                     tanggal_masuk: this.getTodayDate(),
                     awalan: "%10",
                     peminjam: "%10"
