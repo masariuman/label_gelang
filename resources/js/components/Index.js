@@ -6,7 +6,7 @@ class Index extends Component {
         this.state = {
             data: [],
             cari: "",
-            awalan: "TN.",
+            awalan: "%10",
             tanggal_masuk: ""
         };
         this.handleChange = this.handleChange.bind(this);
@@ -60,6 +60,7 @@ class Index extends Component {
                 this.setState({
                     data: [response.data.cari],
                     cari: "",
+                    awalan: "%10",
                     tanggal_masuk: this.getTodayDate()
                 });
                 console.log("from handle sumit", response);
@@ -131,6 +132,8 @@ class Index extends Component {
                                 <td className="widthnorm">{data.NORMTITIK}</td>
                                 <td className="widthtglmasuk"><input name="TANGGAL_MASUK" placeholder="Tanggal Masuk" type="date" className="form-control widthtglmasuk" required onChange={this.tanggalmasukChange} value={this.state.tanggal_masuk} /></td>
                                 <td className="widthawalan"><select name="AWALAN" id="exampleSelect" className="form-control widthawalan" onChange={this.awalanChange}>
+                                    <option value="%10"></option>
+                                    <option value="SDR.">SDR.</option>
                                     <option value="TN.">TN.</option>
                                     <option value="NY.">NY.</option> 
                                     <option value="NN.">NN.</option>

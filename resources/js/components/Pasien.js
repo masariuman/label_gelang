@@ -6,7 +6,7 @@ class Pasien extends Component {
         this.state = {
             data: [],
             url: "/pasien/data",
-            tujuan: "101010106"
+            tujuan: "101010101"
         };
         this.handleChange = this.handleChange.bind(this);
         this.renderCari = this.renderCari.bind(this);
@@ -50,27 +50,27 @@ class Pasien extends Component {
                 <table className="mb-0 table table-bordered">
                     <thead>
                         <tr>
-                            <th>Nomor</th>
+                            <th>No Urut</th>
                             <th>Rekam Medis</th>
                             <th>Nama Pasien</th>
-                            <th>JK</th>
+                            <th>Jenis Kelamin</th>
                             <th>Tanggal Lahir</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.data.map(data => (
                             <tr key={data[0].nomor}>
-                                <td>{data[0].nomor}</td>
-                                <td className="widthnorm">
+                                <td className="widthnodaftarp">{data[0].nomor}</td>
+                                <td className="widthnormp">
                                     {data[0].NORMTITIK}
                                 </td>
                                 <td>{data[0].NAMA}</td>
-                                <td className="widthjk">
+                                <td className="widthjkp">
                                     {data[0].JENIS_KELAMIN === 1
                                         ? "Laki-Laki"
                                         : "Perempuan"}
                                 </td>
-                                <td className="widthlahir">
+                                <td className="widthlahirp">
                                     {data[0].TANGGAL_LAHIR}
                                 </td>
                             </tr>
@@ -84,30 +84,30 @@ class Pasien extends Component {
                     <table className="mb-0 table table-bordered">
                         <thead>
                             <tr>
-                                <th colSpan="5">{post[0].nama_dokter}</th>
+                            <th colSpan="5" className="bg-happy-green"><center><h5><b className="text-light">{post[0].nama_dokter}</b></h5></center></th>
                             </tr>
                             <tr>
-                                <th>Nomor</th>
+                                <th>No Urut</th>
                                 <th>Rekam Medis</th>
                                 <th>Nama Pasien</th>
-                                <th>JK</th>
+                                <th>Jenis Kelamin</th>
                                 <th>Tanggal Lahir</th>
                             </tr>
                         </thead>
                         <tbody>
                             {post.map((detail, j) => (
                                 <tr key={`Key${j}`}>
-                                    <td>{detail.nomor}</td>
-                                    <td>{detail.NORM}</td>
+                                    <td className="widthnodaftarp">{detail.nomor}</td>
+                                    <td className="widthnormp">{detail.NORM}</td>
                                     <td>{detail.NAMA}</td>
-                                    <td>
+                                    <td className="widthjkp">
                                         {detail.JENIS_KELAMIN === 1
                                             ? "Laki-Laki"
                                             : detail.JENIS_KELAMIN === 2
                                             ? "Perempuan"
                                             : ""}
                                     </td>
-                                    <td>{detail.TANGGAL_LAHIR}</td>
+                                    <td className="widthlahirp">{detail.TANGGAL_LAHIR}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -131,7 +131,7 @@ class Pasien extends Component {
                     <div className="page-title-wrapper">
                         <div className="page-title-heading">
                             <div className="page-title-icon">
-                                <i className="pe-7s-search icon-gradient bg-happy-green"></i>
+                                <i className="pe-7s-note2 icon-gradient bg-happy-green"></i>
                             </div>
                             <div>
                                 PASIEN HARI INI
@@ -149,18 +149,46 @@ class Pasien extends Component {
                             <div className="form-group">
                                 <div>
                                     <span className="parents-line">
-                                        Tujuan :
+                                        <h5><b>Tujuan :</b></h5>
                                     </span>
+                                    <p></p>
                                     <select
                                         className="form-control parents"
                                         onChange={this.handleChange}
                                         value={this.state.tujuan}
                                     >
+                                        <option value="101010101">
+                                            Poli Anak
+                                        </option>
                                         <option value="101010102">
                                             Poli Bedah
                                         </option>
+                                        {/* <option value="101010103">
+                                            Poli Gigi Anak
+                                        </option> */}
+                                        <option value="101010104">
+                                            Poli Gigi Umum
+                                        </option>
+                                        <option value="101010105">
+                                            Poli Mata
+                                        </option>
                                         <option value="101010106">
-                                            Poli Syaraf
+                                            Poli Neurologi/Syaraf
+                                        </option>
+                                        <option value="101010107">
+                                            Poli Obgyn/Kandungan
+                                        </option>
+                                        <option value="101010108">
+                                            Poli Penyakit Dalam
+                                        </option>
+                                        <option value="101010109">
+                                            Poli THT
+                                        </option>
+                                        <option value="101010110">
+                                            Poli Bedah Syaraf
+                                        </option>
+                                        <option value="101010111">
+                                            Poli Forensik
                                         </option>
                                         <option value="101020101">UGD</option>
                                     </select>

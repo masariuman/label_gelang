@@ -144,12 +144,15 @@ class DataController extends Controller
         $tujuan = Tujuan::where('RUANGAN',$id)->orderBy("NOPEN", "DESC")->get();
         $dokter_ruangan = DokterRuangan::where('RUANGAN',$id)->get();
         foreach ($dokter_ruangan as $dokter_ruangans) {
-            $dokter[] = Dokter::where('ID',$dokter_ruangans['DOKTER'])->first();
+            $cek = Dokter::where('ID',$dokter_ruangans['DOKTER'])->first();
+            if ($cek['STATUS'] === 1) {
+                $dokter[] = Dokter::where('ID',$dokter_ruangans['DOKTER'])->first(); 
+            }
         }
         $dokterCount = 0;
         foreach ($dokter as $docter) {
 
-            $today = $pendaftarans = Pendaftaran::whereDate('TANGGAL', Carbon::yesterday())->get();
+            $today = $pendaftarans = Pendaftaran::whereDate('TANGGAL', Carbon::today())->get();
             foreach ($today as $todays) {
                 $cek = Tujuan::where('DOKTER',$docter['ID'])->where('NOPEN',$todays['NOMOR'])->first();
                 if ($cek) {
@@ -171,7 +174,7 @@ class DataController extends Controller
                 $offset = count($tujuan_dokter[$dokterCount]);
                 foreach ($tujuan_dokter[$dokterCount] as $namaDokter) {
                     $namaDokter['nama_dokter'] = $namaa->GELAR_DEPAN.'. '.$namaa->NAMA.', '.$namaa->GELAR_BELAKANG;
-                    $pendaftarans = Pendaftaran::whereDate('TANGGAL', Carbon::yesterday())->where('NOMOR', $namaDokter['NOPEN'])->first();
+                    $pendaftarans = Pendaftaran::whereDate('TANGGAL', Carbon::today())->where('NOMOR', $namaDokter['NOPEN'])->first();
                     if (!$pendaftarans) {
                         $namaDokter['NORM'] = "";
                         $namaDokter['NAMA'] = "";
