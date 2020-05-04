@@ -7,4 +7,4 @@
 <meta name="msapplication-tap-highlight" content="no">
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="icon" href="/hbxcphyevn/t/poto/untan.png">
+<link rel="icon" href="/hbxcphyevn/t/poto/Untan.png">
