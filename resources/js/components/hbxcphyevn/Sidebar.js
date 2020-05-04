@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Sidebar extends Component {
     constructor(props) {
@@ -63,22 +63,22 @@ class Sidebar extends Component {
                         <ul className="vertical-nav-menu">
                             <li className="app-sidebar__heading"><center>Aplikasi</center> <center>Cetak Label, Gelang, Tracer</center><center>Dan Data Pasien Hari Ini</center><center>Rumah Sakit</center> <center>Universitas Tanjungpura</center> </li>
                             <li>
-                            <Link to={`/`} className="{this.state.activeIndex==0 ? 'mm-active': null}" onClick={this.toggleClass.bind(this, 0)}>                                
+                            <NavLink exact to={`/`} activeClassName="mm-active" className="{this.state.activeIndex==0 ? 'mm-active': null}" onClick={this.toggleClass.bind(this, 0)}>                                
                                     <i className="metismenu-icon pe-7s-print"></i>
                                     Label & Gelang                               
-                              </Link>
+                              </NavLink>
                             </li>
                             <li >
-                              <Link to={`/tracer`}  className="{this.state.activeIndex==0 ? 'mm-active': null}"  onClick={this.toggleClass.bind(this, 1)}>
+                              <NavLink exact to={`/tracer`} activeClassName="mm-active"  className="{this.state.activeIndex==0 ? 'mm-active': null}"  onClick={this.toggleClass.bind(this, 1)}>
                                     <i className="metismenu-icon pe-7s-ticket"></i>
                                     Tracer
-                              </Link>
+                              </NavLink>
                             </li>
                             <li>
-                            <Link to={`/today_pasien`} className="{this.state.activeIndex==0 ? 'mm-active': null}"  onClick={this.toggleClass.bind(this, 1)}>
+                            <NavLink exact to={`/today_pasien`} activeClassName="mm-active" className="{this.state.activeIndex==0 ? 'mm-active': null}"  onClick={this.toggleClass.bind(this, 1)}>
                                     <i className="metismenu-icon pe-7s-note2"></i>
-                                    Data Pasien
-                            </Link>
+                                    Pasien Hari Ini
+                            </NavLink>
                             </li> 
                         </ul>                           
                     </div>

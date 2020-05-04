@@ -73518,7 +73518,7 @@ function (_Component) {
         value: "101010111"
       }, "Poli Forensik"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "101020101"
-      }, "UGD"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "IGD"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-responsive"
       }, this.renderCari()))));
     }
@@ -74557,25 +74557,31 @@ function (_Component) {
         className: "vertical-nav-menu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "app-sidebar__heading"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Aplikasi"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Cetak Label, Gelang, Tracer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Dan Data Pasien Hari Ini"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Rumah Sakit"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Universitas Tanjungpura"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Aplikasi"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Cetak Label, Gelang, Tracer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Dan Data Pasien Hari Ini"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Rumah Sakit"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "Universitas Tanjungpura"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        exact: true,
         to: "/",
+        activeClassName: "mm-active",
         className: "{this.state.activeIndex==0 ? 'mm-active': null}",
         onClick: this.toggleClass.bind(this, 0)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "metismenu-icon pe-7s-print"
-      }), "Label & Gelang")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }), "Label & Gelang")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        exact: true,
         to: "/tracer",
+        activeClassName: "mm-active",
         className: "{this.state.activeIndex==0 ? 'mm-active': null}",
         onClick: this.toggleClass.bind(this, 1)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "metismenu-icon pe-7s-ticket"
-      }), "Tracer")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }), "Tracer")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        exact: true,
         to: "/today_pasien",
+        activeClassName: "mm-active",
         className: "{this.state.activeIndex==0 ? 'mm-active': null}",
         onClick: this.toggleClass.bind(this, 1)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "metismenu-icon pe-7s-note2"
-      }), "Data Pasien"))))));
+      }), "Pasien Hari Ini"))))));
     }
   }]);
 
