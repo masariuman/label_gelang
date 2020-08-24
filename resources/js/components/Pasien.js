@@ -190,6 +190,9 @@ class Pasien extends Component {
                                         <option value="101010111">
                                             Poli Forensik
                                         </option>
+                                        <option value="101010112">
+                                            Poli Rehabilitas Medik
+                                        </option>
                                         <option value="101020101">IGD</option>
                                     </select>
                                 </div>
